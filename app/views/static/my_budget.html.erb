@@ -1,0 +1,75 @@
+
+<div class="row">
+  <div class="large-5 columns">
+    <h1><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h1>
+  </div>
+  <div class="large-7 columns">
+    <h5 class="right">Welcome <%= current_user.email %>!</h5>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <p>You have spent $344.87 of $4,200.00</p>
+    <div class="progress"><span class="meter" style="width: 8.21%"></span></div>
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-8 columns">
+    <br />
+    <h4>Savings this year</h4>
+    <canvas id="canvas" height="400" width="800"></canvas>
+    <script>
+      var lineChartData = {
+        labels : ["January","February","March","April","May","June","July","August", "September","October","November","December"],
+        datasets : [
+          {
+            fillColor : "rgba(220,20,60,0.5)",
+            strokeColor : "rgba(220,220,220,1)",
+            pointColor : "rgba(220,220,220,1)",
+            pointStrokeColor : "#fff",
+            data : [25,49,30,51,46,35,20]
+          },
+          {
+            fillColor : "rgba(34,139,34,0.5)",
+            strokeColor : "rgba(151,187,205,1)",
+            pointColor : "rgba(151,187,205,1)",
+            pointStrokeColor : "#fff",
+            data : [28,48,40,19,76,27]
+          }
+        ]
+
+      }
+      var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
+    </script>
+  </div>
+
+  <div class="large-4 columns">
+    <br />
+    <h4><span class="fixed-color">Fixed</span>, <span class="fluid-color">Fluid</span>, and <span class="savings-color">Savings</span> Allocation</h4>
+    <canvas id="pie" height="300" width="300"></canvas>
+    <script>
+      var pieData = [
+          {
+            value: 30,
+            color:"#228B22"
+          },
+          {
+            value : 50,
+            color : "#DC143C"
+          },
+          {
+            value : 100,
+            color : "#6495ED"
+          }
+
+        ];
+      var myPie = new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
+    </script>
+  </div>
+
+
+  </div>
+</div>

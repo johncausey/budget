@@ -1,0 +1,35 @@
+<div class="header-span">
+  
+
+  <div class="row">
+    <div class="large-3 columns">
+      <!-- <h2><%= link_to "Budget Software", root_url %></h2> -->
+    </div>
+
+    <div class="large-9 columns main-nav">
+      <ul class="right">
+        <% if !current_user %>
+          <li class="right">
+            <a href="#" class="button secondary" data-dropdown="drop1">Access my Account</a>
+            <div id="drop1" class="f-dropdown content small" data-dropdown-form>
+              <%= form_tag sessions_path do %>
+                <%= label_tag :email, "Email Address" %>
+                <%= text_field_tag :email, params[:email] %>
+                <%= label_tag :password, "Password" %>
+                <%= password_field_tag :password %>
+                <%= submit_tag "Sign In", :class => "button right" %>
+              <% end %>
+            </div>
+          </li>
+          <li class="right"><%= link_to "Create an Account", signup_path, :class => "button secondary" %></li>
+        <% end %>
+        <% if current_user %>
+          <li class="right"><%= link_to "View my Budget", my_budget_path, :class => "button secondary" %></li>
+          <li class="right"><%= link_to "Log Out", logout_path, :class => "button secondary" %></li>
+        <% end %>
+        
+      </ul>
+    </div>
+  </div>
+
+</div>

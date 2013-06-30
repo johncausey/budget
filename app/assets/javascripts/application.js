@@ -12,5 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+   setTimeout(function(){
+  $("div.alert-box").fadeOut("slow", function () {
+  $("div.alert-box").remove();
+      });
+ 
+  }, 2000);
+});
+
+
+$(document).foundation();
+

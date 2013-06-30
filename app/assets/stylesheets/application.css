@@ -10,4 +10,38 @@
  *
  *= require_self
  *= require_tree .
+ *= require foundation_and_overrides
  */
+ 
+
+.main-nav {
+  }.main-nav ul {
+    list-style: none;
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+  }.main-nav li {
+    display: inline;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+.fixed-color {
+  color: #6495ED;
+}
+.savings-color {
+  color: #228B22;
+}
+.fluid-color {
+  color: #DC143C;
+}
+
+.footer-links { font-size: 14px; }
+.footer-company { font-size: 14px; }
+
+.drop-signin-form { width: 500px; }
+
+.header-span {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #CCC;
+  background-color: #FCFCFC;
+}
