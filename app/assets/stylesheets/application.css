@@ -13,6 +13,10 @@
  *= require foundation_and_overrides
  */
  
+.fixed-font { color: #3333FF; }
+.fluid-font { color: #DC143C; }
+.saving-font { color: #228B22; }
+
 
 .main-nav {
   }.main-nav ul {
@@ -24,16 +28,6 @@
     font-size: 14px;
     padding: 10px;
   }
-
-.fixed-color {
-  color: #6495ED;
-}
-.savings-color {
-  color: #228B22;
-}
-.fluid-color {
-  color: #DC143C;
-}
 
 .footer-links { font-size: 14px; }
 .footer-company { font-size: 14px; }
