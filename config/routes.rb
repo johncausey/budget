@@ -6,7 +6,11 @@ Budget::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   
-  resources :users
+  resources :users do
+    resources :expenses
+  end
+  
+  resources :expenses
   resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -11,13 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130630082028) do
+ActiveRecord::Schema.define(version: 20130704120832) do
+
+  create_table "expenses", force: true do |t|
+    t.decimal  "amount",     precision: 8, scale: 2
+    t.datetime "date_added"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "fixed",                              default: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
 end

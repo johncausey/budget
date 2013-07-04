@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="large-12 columns">
+    <h1><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h1>
+    <hr />
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns">
+    <ul class="side-nav">
+      <li><%= link_to "Month of #{Time.now.strftime("%B")}", my_budget_path %></li>
+      <li class="active"><%= link_to "Expenses", expenses_path %></li>
+      <li><a href="#">Income</a></li>
+      <li><a href="#">Progress for <%= Time.now.strftime("%Y") %></a></li>
+      <li class="divider"></li>
+      <li><%= link_to "Account Information", edit_user_path(current_user) %></li>
+    </ul>
+  </div>
+  <div class="large-9 columns">
+    <fieldset>
+      <legend>Add an expense</legend>
+      <%= form_for([@user, @user.expenses.build]) do |f| %>
+        <div class="small-10 columns">
+          <div class="small-5 columns">
+            <%= f.label :amount, "Dollar Amount", :class => "right inline" %>
+          </div>
+          <div class="small-7 columns">
+            <%= f.text_field :amount %>
+          </div>
+        </div>
+
+        <div class="small-10 columns">
+          <div class="small-5 columns">
+            <%= f.label :fixed, "Fixed or Fluid?", :class => "right inline" %>
+          </div>
+          <div class="small-7 columns">
+            <%= f.radio_button :fixed, false %>Fluid Expense<br />
+            <%= f.radio_button :fixed, true %>Fixed Expense
+          </div>
+        </div>
+
+        <div class="small-10 columns">
+          <div class="small-5 columns">
+            <%= f.label :date_added, "Date Added", :class => "right inline" %>
+          </div>
+          <div class="small-7 columns">
+            <%= f.datetime_select(:date_added, :discard_year => true, :discard_hour => true) %>
+          </div>
+        </div>
+
+        <div class="small-10 left columns">
+          <%= f.submit "Add Expense", :class => "button right" %>
+        </div>
+      <% end %>
+    </fieldset>
+    <table style="width: 100%">
+      <thead>
+        <tr>
+          <th>Expense Amount</th>
+          <th>Date Added</th>
+          <th>Expense Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @expenses.each do |expense| %>
+          <tr>
+            <td>
+              <%= number_to_currency(expense.amount) %> &nbsp;
+              <%= expense.fixed ? "(Fixed)" : "(Fluid)" %>
+            </td>
+            <td><%= expense.date_added.strftime("%A, %B %d") %> - <%= time_ago_in_words(expense.date_added) %> ago</td>
+            <td><%= link_to 'Remove this Expense', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  </div>
+</div>
