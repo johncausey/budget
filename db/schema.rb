@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130704120832) do
+ActiveRecord::Schema.define(version: 20130705104014) do
 
   create_table "expenses", force: true do |t|
     t.decimal  "amount",     precision: 8, scale: 2
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20130704120832) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "fixed",                              default: false
+    t.string   "name"
   end
 
   create_table "users", force: true do |t|

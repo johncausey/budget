@@ -2,7 +2,8 @@ class ExpensesController < ApplicationController
 
   def index
     @user = current_user
-    @expenses = @user.expenses.where("date_added BETWEEN ? AND ?", Time.now.beginning_of_month, Time.now.end_of_month)
+    @fixed_expenses = @user.expenses.where("date_added BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month).where(:fixed => true).to_a
+    @fluid_expenses = @user.expenses.where("date_added BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month).where(:fixed => false).to_a
   end
 
   def new
@@ -13,9 +14,9 @@ class ExpensesController < ApplicationController
     @user = current_user
     @expense = @user.expenses.build(expense_params)
     if @expense.save
-      redirect_to my_budget_path, notice: "Added expense!"
+      redirect_to expenses_path, notice: "Added expense!"
     else
-      render "index"
+      render "expenses_path"
     end
   end
 
@@ -28,7 +29,7 @@ class ExpensesController < ApplicationController
 
   private
     def expense_params
-      params.require(:expense).permit(:amount, :date_added, :user_id)
+      params.require(:expense).permit(:name, :amount, :date_added, :user_id, :fixed)
     end
 
 end

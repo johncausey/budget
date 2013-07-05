@@ -10,13 +10,17 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery.ui.datepicker
  *= require foundation_and_overrides
  */
+
+.ui-datepicker-next { display: none; }
+.ui-datepicker-prev { display: none; }
 
 a { border-bottom: 1px solid #FFFFFF; }
 a:hover { border-bottom: 1px solid; }
  
-.fixed-font { color: #3333FF; }
+.fixed-font { color: #3D92DB; }
 .fluid-font { color: #DC143C; }
 .saving-font { color: #228B22; }
 
@@ -45,5 +49,5 @@ a:hover { border-bottom: 1px solid; }
   margin-bottom: 20px;
   color: #FFFFFF;
   border-bottom: 5px solid #ADADAD;
-  background-color: #B01E1E;
+  background-color: #3D92DB;
 }

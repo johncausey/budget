@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.ui.datepicker
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
@@ -23,6 +24,13 @@ $(document).ready(function(){
       });
  
   }, 2000);
+});
+
+$(function() {
+  return $("#datepicker").datepicker({
+    dateFormat: 'yy-mm-dd',
+    stepMonths: 0
+  });
 });
 
 
