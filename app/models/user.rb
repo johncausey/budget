@@ -5,7 +5,11 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   def full_name
-    first_name + " " + last_name
+    if first_name && last_name
+      first_name + " " + last_name
+    else
+      email
+    end
   end
 
 end
