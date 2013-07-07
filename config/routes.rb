@@ -9,6 +9,8 @@ Budget::Application.routes.draw do
   resources :users do
     resources :expenses
   end
+
+  get 'users/:id/expenses' => 'expenses#index', as: :expenses_for_user
   
   resources :expenses
   resources :sessions

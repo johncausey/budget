@@ -16,7 +16,7 @@ class ExpensesController < ApplicationController
     if @expense.save
       redirect_to expenses_path, notice: "Added expense!"
     else
-      render "expenses_path"
+      render expenses_for_user_path
     end
   end
 
