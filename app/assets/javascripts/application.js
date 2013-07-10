@@ -17,6 +17,8 @@
 //= require turbolinks
 //= require_tree .
 
+
+// Fades notice boxes after a short while, then hides
 $(document).ready(function(){
    setTimeout(function(){
   $("div.alert-box").fadeOut("slow", function () {
@@ -26,13 +28,13 @@ $(document).ready(function(){
   }, 2000);
 });
 
+// For Foundation CSS Framework
+$(document).foundation();
+
+// For jQuery UI Datepicker
 $(function() {
   return $("#datepicker").datepicker({
     dateFormat: 'yy-mm-dd',
     stepMonths: 0
   });
 });
-
-
-$(document).foundation();
-

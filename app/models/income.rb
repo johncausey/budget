@@ -1,4 +1,4 @@
-class Expense < ActiveRecord::Base
+class Income < ActiveRecord::Base
 
   belongs_to :user
 
@@ -8,5 +8,5 @@ class Expense < ActiveRecord::Base
     value = value.to_s.tr('$,', '').to_f
     write_attribute(:amount, value)
   end
-
+  
 end

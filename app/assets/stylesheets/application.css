@@ -24,6 +24,8 @@ a:hover { border-bottom: 1px solid; }
 .fluid-font { color: #DC143C; }
 .saving-font { color: #228B22; }
 
+.custom-expense-lineheight { line-height: 150%; }
+
 .header-span h3 { color: #FFFFFF; }
 
 .main-nav {

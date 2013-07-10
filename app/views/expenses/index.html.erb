@@ -11,7 +11,7 @@
     <ul class="side-nav">
       <li><%= link_to "Month of #{Time.zone.now.strftime("%B")}", my_budget_path %></li>
       <li class="active"><%= link_to "Expenses", expenses_path %></li>
-      <li><a href="#">Income</a></li>
+      <li><%= link_to "Income", incomes_path %></li>
       <li><a href="#">Progress for <%= Time.now.strftime("%Y") %></a></li>
       <li class="divider"></li>
       <li><%= link_to "Account Information", edit_user_path(current_user) %></li>
@@ -21,7 +21,7 @@
     <div class="row">
       <div class="large-8 columns">
         <fieldset>
-          <legend>Expenses for <%= Time.zone.now.strftime("%B") %></legend>
+          <legend>Add new expense for <%= Time.zone.now.strftime("%B") %></legend>
           <%= form_for([@user, @user.expenses.build]) do |f| %>
             <div class="row">
               <div class="small-10 columns">
@@ -95,48 +95,57 @@
     </div>
 
 
-    <h3>Fixed Expenses</h3>
-    <table style="width: 100%">
-      <thead>
-        <tr>
-          <th>Expense Amount</th>
-          <th>Expense Information</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @fixed_expenses.each do |expense| %>
-          <tr>
-            <td>
-              <%= number_to_currency(expense.amount) %> &nbsp;
-              <%= expense.name %>
-            </td>
-            <td><%= expense.date_added.strftime("%A, %B %d") %> | 
-            <%= link_to 'Remove', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <h3>Fluid Expenses</h3>
-    <table style="width: 100%">
-      <thead>
-        <tr>
-          <th>Expense Amount</th>
-          <th>Expense Information</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @fluid_expenses.each do |expense| %>
-          <tr>
-            <td>
-              <%= number_to_currency(expense.amount) %> &nbsp;
-              <%= expense.name %>
-            </td>
-            <td><%= expense.date_added.strftime("%A, %B %d") %> | 
-            <%= link_to 'Remove', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+
+    <div class="row">
+      <div class="large-12 columns">
+          <h4>Fixed</h4>
+          <table style="width: 100%">
+            <thead>
+              <tr>
+                <th>Expense Amount</th>
+                <!-- <th>Expense Information</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <% @fixed_expenses.each do |expense| %>
+                <tr>
+                  <td class="custom-expense-lineheight">
+                    <%= number_to_currency(expense.amount) %><br /> 
+                    <%= expense.name %> - 
+                    <%= expense.date_added.strftime("%A, %B %d") %> | 
+                    <%= link_to 'delete', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" } %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <h4>Fluid</h4>
+          <table style="width: 100%">
+            <thead>
+              <tr>
+                <th>Expense Amount</th>
+                <th>Expense Information</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @fluid_expenses.each do |expense| %>
+                <tr>
+                  <td>
+                    <%= number_to_currency(expense.amount) %> &nbsp;
+                    <%= expense.name %>
+                  </td>
+                  <td><%= expense.date_added.strftime("%A, %B %d") %> | 
+                  <%= link_to 'x', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+
+
+
+
   </div>
 
 </div>

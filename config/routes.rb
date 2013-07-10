@@ -1,5 +1,6 @@
 Budget::Application.routes.draw do
   
+  get "incomes/index"
   get 'my_budget', to: 'static#my_budget', as: 'my_budget'
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
@@ -8,11 +9,13 @@ Budget::Application.routes.draw do
   
   resources :users do
     resources :expenses
+    resources :incomes
   end
 
   get 'users/:id/expenses' => 'expenses#index', as: :expenses_for_user
   
   resources :expenses
+  resources :incomes
   resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.

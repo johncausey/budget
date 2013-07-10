@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :expenses
+  has_many :incomes
   
   validates_uniqueness_of :email
 

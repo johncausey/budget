@@ -1,0 +1,100 @@
+
+<div class="row">
+  <div class="large-12 columns">
+    <h1><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h1>
+    <hr />
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns">
+    <ul class="side-nav">
+      <li><%= link_to "Month of #{Time.zone.now.strftime("%B")}", my_budget_path %></li>
+      <li><%= link_to "Expenses", expenses_path %></li>
+      <li class="active"><%= link_to "Income", incomes_path %></a></li>
+      <li><a href="#">Progress for <%= Time.now.strftime("%Y") %></a></li>
+      <li class="divider"></li>
+      <li><%= link_to "Account Information", edit_user_path(current_user) %></li>
+    </ul>
+  </div>
+  <div class="large-9 columns">
+    <h3>Your Income for <%= this_month %></h3>
+    <div class="row">
+      <div class="large-8 columns">
+        <fieldset>
+          <legend>Add incoming cash</legend>
+          <%= form_for([@user, @user.incomes.build]) do |f| %>
+            <div class="row">
+              <div class="small-10 columns">
+                <div class="small-6 columns">
+                  <%= f.label :name, "Income Source", :class => "right inline" %>
+                </div>
+                <div class="small-6 columns left">
+                  <%= f.text_field :name, :placeholder => "Paycheck" %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="small-10 columns">
+                <div class="small-6 columns">
+                  <%= f.label :amount, "Dollar Amount", :class => "right inline" %>
+                </div>
+                <div class="small-4 columns left">
+                  <%= f.text_field :amount, :placeholder => "$1,207.50" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="small-10 columns">
+                <div class="small-6 columns">
+                  <%= f.label :date_added, "Date Added", :class => "right inline" %>
+                </div>
+                <div class="small-5 columns left">
+                  <%= f.text_field :date_added, :id => "datepicker" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <br />
+              <br />
+              <div class="small-11 left columns">
+                <%= f.submit "Add Income", :class => "button right" %>
+              </div>
+            </div>
+          <% end %>
+        </fieldset>
+      </div>
+
+      <div class="large-4 columns">
+        <h5>Earned Money!</h5>
+        <p>It's easy to think that what you make is fixed and won't change- but that's not always the case. Money comes in just as it goes out, and it's okay to increase what comes in. Work to add income sources to quickly get out of debt.</p>
+      </div>
+    </div>
+
+
+    <!-- <h3>Your Income for <%= this_month %></h3> -->
+    <table style="width: 100%">
+      <thead>
+        <tr>
+          <th>Income Amount</th>
+          <th>Income Information</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @incomes.each do |income| %>
+          <tr>
+            <td>
+              <%= number_to_currency(income.amount) %> &nbsp;
+              <%= income.name %>
+            </td>
+            <td><%= income.date_added.strftime("%A, %B %d") %> | 
+            <%= link_to 'Remove', income, method: :delete, data: { confirm: "Are you sure you want to remove this income?" } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>
