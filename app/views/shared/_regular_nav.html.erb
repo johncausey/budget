@@ -17,6 +17,9 @@
                 <%= text_field_tag :email, params[:email] %>
                 <%= label_tag :password, "Password" %>
                 <%= password_field_tag :password %>
+                <p><%= check_box_tag :remember_me, 1, params[:remember_me], :style => "display:inline !important" %>
+                <%= label_tag :remember_me, "Remember Me", :style => "display:inline !important" %></p>
+                <p class="forgot-remember"><%= link_to "Password Recovery", new_password_reset_path %></p>
                 <%= submit_tag "Sign In", :class => "button right" %>
               <% end %>
             </div>
@@ -25,7 +28,7 @@
         <% end %>
         <% if current_user %>
           <li class="right">Logged in as <%= current_user.full_name %></li>
-          <li class="right"><%= link_to "View my Budget", my_budget_path %></li>
+          <li class="right"><%= link_to "View my Budget", current_month_path %></li>
         <% end %>
         
       </ul>

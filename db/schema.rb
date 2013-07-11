@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130710062445) do
+ActiveRecord::Schema.define(version: 20130711072607) do
 
   create_table "expenses", force: true do |t|
     t.decimal  "amount",     precision: 8, scale: 2
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(version: 20130710062445) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "auth_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
 end

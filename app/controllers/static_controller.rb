@@ -1,6 +1,6 @@
 class StaticController < ApplicationController
 
-  def my_budget
+  def current_month
     @user = current_user
     @my_expenses = @user.expenses.where("date_added BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month)
     @my_incomes = @user.incomes.where("date_added BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month)

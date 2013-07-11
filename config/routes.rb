@@ -1,7 +1,6 @@
 Budget::Application.routes.draw do
   
-  get "incomes/index"
-  get 'my_budget', to: 'static#my_budget', as: 'my_budget'
+  get 'current_month', to: 'static#current_month', as: 'current_month'
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
@@ -11,12 +10,11 @@ Budget::Application.routes.draw do
     resources :expenses
     resources :incomes
   end
-
-  get 'users/:id/expenses' => 'expenses#index', as: :expenses_for_user
   
   resources :expenses
   resources :incomes
   resources :sessions
+  resources :password_resets
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

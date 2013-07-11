@@ -17,6 +17,9 @@
 .ui-datepicker-next { display: none; }
 .ui-datepicker-prev { display: none; }
 
+.forgot-remember { font-size: 14px; }
+.forgot-remember a { color: #3D92DB !important; }
+
 a { border-bottom: 1px solid #FFFFFF; }
 a:hover { border-bottom: 1px solid; }
  
