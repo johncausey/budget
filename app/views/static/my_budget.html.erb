@@ -21,7 +21,8 @@
     <div class="row">
       <div class="large-12 columns">
         <p><%= amount_spent %><span class="right">Expense count at <%= @purchase_count %></span></p>
-        <div class="progress"><span class="meter" style="width: <%= main_total_bar %>%"></span></div>
+        <%= main_total_bar %>
+        <!-- <div class="progress"><span class="meter" style="width: <%= main_total_bar %>%"></span></div> -->
       </div>
 
       <div class="row">

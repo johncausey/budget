@@ -4,7 +4,11 @@ module StaticHelper
     spent = @my_expenses.to_a.sum(&:amount)
     earned = @my_incomes.to_a.sum(&:amount)
     percent = spent/earned*100
-    percent
+    if percent < 100
+      "<div class='progress'><span class='meter' style='width: #{percent}%'></span></div>".html_safe
+    elsif percent >= 100
+      "<div class='progress alert'><span class='meter' style='width: 100%'></span></div>".html_safe
+    end
   end
 
   def amount_spent
