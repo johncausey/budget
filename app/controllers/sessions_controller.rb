@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = user.auth_token
       end
-      redirect_to my_budget_path, notice: "You have been logged in successfully!"
+      redirect_to current_month_path, notice: "You have been logged in successfully!"
     else
       flash.now.alert = "Email or password is invalid."
       render "new"

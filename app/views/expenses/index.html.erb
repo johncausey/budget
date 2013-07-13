@@ -1,4 +1,11 @@
-
+<script>
+$(function() {
+  return $("#datepicker").datepicker({
+    dateFormat: 'yy-mm-dd',
+    stepMonths: 0
+  });
+});
+</script>
 <div class="row">
   <div class="large-12 columns">
     <h1><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h1>
@@ -9,7 +16,8 @@
 <div class="row">
   <div class="large-3 columns">
     <ul class="side-nav">
-      <li><%= link_to "Month of #{Time.zone.now.strftime("%B")}", current_month_path %></li>
+      <li><%= link_to "#{this_month} Overview", current_month_path %></li>
+      <li><%= link_to "Savings Goal for #{this_month}" %></li>
       <li class="active"><%= link_to "Expenses", expenses_path %></li>
       <li><%= link_to "Income", incomes_path %></li>
       <li><a href="#">Progress for <%= Time.now.strftime("%Y") %></a></li>

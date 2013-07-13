@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery.ui.datepicker
 //= require jquery_ujs
+//= require raphael
+//= require morris
 //= require foundation
 //= require turbolinks
 //= require_tree .
