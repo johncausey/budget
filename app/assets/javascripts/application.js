@@ -17,8 +17,18 @@
 //= require morris
 //= require foundation
 //= require turbolinks
-//= require_tree .
 
+$(document).ready(function(){
+  $(function() {
+      return $("#datepicker").datepicker({
+        dateFormat: 'yy-mm-dd',
+        stepMonths: 0
+      });
+    });
+});
+
+// For Foundation CSS Framework
+$(document).foundation();
 
 // Fades notice boxes after a short while, then hides
 $(document).ready(function(){
@@ -30,13 +40,3 @@ $(document).ready(function(){
   }, 2000);
 });
 
-// For Foundation CSS Framework
-$(document).foundation();
-
-// For jQuery UI Datepicker
-$(function() {
-  return $("#datepicker").datepicker({
-    dateFormat: 'yy-mm-dd',
-    stepMonths: 0
-  });
-});

@@ -1,4 +1,14 @@
-
+<script>
+  jQuery(function() {
+    return Morris.Line({
+      element: 'monthly-expenses-chart',
+      data: $('#monthly-expenses-chart').data('expenses'),
+      xkey: 'date_added',
+      ykeys: ['amount'],
+      labels: ['Amount']
+    });
+  });
+</script>
 <div class="row">
   <div class="large-12 columns">
     <h1><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h1>
@@ -23,7 +33,7 @@
       <div class="large-12 columns">
         <p><%= amount_spent %><span class="right">Expense count at <%= @purchase_count %></span></p>
         <%= main_total_bar %>
-        <%= content_tag :div, "", id: "monthly-expenses-chart", data: {expenses: expenses_chart_data} %>
+        <%= content_tag :div, "", id: "monthly-expenses-chart", data: {expenses: Expense.chart_data} %>
       </div>
 
       <div class="row">

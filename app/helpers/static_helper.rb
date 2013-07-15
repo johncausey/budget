@@ -18,14 +18,16 @@ module StaticHelper
     "You have spent #{number_to_currency(spent)} out of #{number_to_currency(earned)}. "
   end
 
-  def expenses_chart_data
-    (Time.zone.now.beginning_of_month.to_date..Date.today).map do |date|
-      {
-        date_added: date,
-        amount: Expense.where("date(date_added) = ?", date).sum(:amount)
-      }
-    end
-  end
+  # def expenses_chart_data
+  #   user_expenses = current_user
+  #   expenses_by_day = user_expenses.expenses.total_grouped_by_day(3.weeks.ago)
+  #   (Time.zone.now.beginning_of_month.to_date..Time.zone.now.end_of_month).map do |date|
+  #     {
+  #       date_added: date,
+  #       amount: expenses_by_day[date].first.try(:total_spent) || 0
+  #     }
+  #   end
+  # end
 
 
 end
