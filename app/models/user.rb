@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :expenses
   has_many :incomes
+  has_many :savings
 
   before_create { generate_token(:auth_token) }
   

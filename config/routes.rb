@@ -1,5 +1,6 @@
 Budget::Application.routes.draw do
-  
+
+
   get 'current_month', to: 'static#current_month', as: 'current_month'
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
@@ -9,11 +10,13 @@ Budget::Application.routes.draw do
   resources :users do
     resources :expenses
     resources :incomes
+    resources :savings
   end
   
   resources :expenses
   resources :incomes
   resources :sessions
+  resources :savings
   resources :password_resets
 
   # The priority is based upon order of creation: first created -> highest priority.

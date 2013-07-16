@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  amount: 9.99
+  saving_month: 2013-07-15 19:23:25
+
+two:
+  amount: 9.99
+  saving_month: 2013-07-15 19:23:25

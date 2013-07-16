@@ -1,0 +1,91 @@
+
+<div class="row">
+  <div class="large-12 columns">
+    <h1><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h1>
+    <hr />
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns">
+    <ul class="side-nav">
+      <li><%= link_to "#{this_month} Overview", current_month_path %></li>
+      <li class="active"><%= link_to "Savings", savings_path %></li>
+      <li><%= link_to "Expenses", expenses_path %></li>
+      <li><%= link_to "Income", incomes_path %></li>
+      <li><a href="#">Progress for <%= Time.now.strftime("%Y") %></a></li>
+      <li class="divider"></li>
+      <li><%= link_to "Account Information", edit_user_path(current_user) %></li>
+    </ul>
+  </div>
+  <div class="large-9 columns">
+    <div class="row">
+      <div class="large-12 columns">
+        <h3>Saving a little sumthin' each month</h3>
+        <fieldset>
+          <legend>Set your saving goal for <%= this_month %></legend>
+          <%= form_for([@user, @user.savings.build]) do |f| %>
+            <div class="row">
+              <div class="large-6 columns">
+                <p>Saving money is important- it doesn't mean letting your money sit and do nothing, it means making sure you have money left over each month, and that you're able to save, invest, and purchase with it- otherwise you're just treading water.</p>
+              </div>
+              <div class="large-5 columns">
+                <div class="row collapse">
+                  <% if @this_months_savings_goal %>
+                    <p>
+                      Your <%= this_month %> goal is <strong><%= number_to_currency(@this_months_savings_goal.amount) %></strong>
+                    </p>
+                    <p>
+                      You can replace this goal by setting a new goal below.
+                    </p>
+                  <% else %>
+                    <p>Your savings goal for <%= this_month %> has not been set. Set a goal below to start saving!</p>
+                  <% end %>
+                  <div class="small-6 columns">
+                    <%= f.text_field :amount, :placeholder => "$430.00" %>
+                  </div>
+                  <div class="small-4 columns left">
+                    <%= f.submit "Set Goal", :class => "button prefix" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </fieldset>
+
+
+
+        <table style="width: 100%">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Monthly Saving Goal</th>
+              <th>Actual Amount Saved</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @savings.each do |saving| %>
+              <tr>
+                <td><%= saving.saving_month.strftime("%B, %Y") %></td>
+                <td><%= number_to_currency(saving.amount) %></td>
+                <td>calculated value here</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+    </div>
+  </div>
+</div>
+

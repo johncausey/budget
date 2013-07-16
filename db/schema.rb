@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130711072607) do
+ActiveRecord::Schema.define(version: 20130716022325) do
 
   create_table "expenses", force: true do |t|
     t.decimal  "amount",     precision: 8, scale: 2
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 20130711072607) do
     t.datetime "date_added"
     t.integer  "user_id"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "savings", force: true do |t|
+    t.decimal  "amount",       precision: 8, scale: 2
+    t.datetime "saving_month"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

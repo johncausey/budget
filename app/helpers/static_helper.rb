@@ -15,7 +15,7 @@ module StaticHelper
   def amount_spent
     spent = @my_expenses.to_a.sum(&:amount)
     earned = @my_incomes.to_a.sum(&:amount)
-    "You have spent #{number_to_currency(spent)} out of #{number_to_currency(earned)}. "
+    "You have used <strong>#{number_to_currency(spent)}</strong> out of <strong>#{number_to_currency(earned)}</strong>.".html_safe
   end
 
   # def expenses_chart_data

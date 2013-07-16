@@ -20,7 +20,7 @@
   <div class="large-3 columns">
     <ul class="side-nav">
       <li><%= link_to "#{this_month} Overview", current_month_path %></li>
-      <li><%= link_to "Savings Goal for #{this_month}" %></li>
+      <li><%= link_to "Savings", savings_path %></li>
       <li><%= link_to "Expenses", expenses_path %></li>
       <li class="active"><%= link_to "Income", incomes_path %></a></li>
       <li><a href="#">Progress for <%= Time.now.strftime("%Y") %></a></li>
