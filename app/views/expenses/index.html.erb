@@ -22,15 +22,14 @@
       <li><%= link_to "Savings", savings_path %></li>
       <li class="active"><%= link_to "Expenses", expenses_path %></li>
       <li><%= link_to "Income", incomes_path %></li>
-      <li><a href="#">Progress for <%= Time.now.strftime("%Y") %></a></li>
       <li class="divider"></li>
-      <li><%= link_to "Account Information", edit_user_path(current_user) %></li>
+      <li><%= link_to "Account Information", account_information_path %></li>
     </ul>
   </div>
   <div class="large-9 columns">
-    <h3>What you've spent for <%= this_month %></h3>
     <div class="row">
       <div class="large-8 columns">
+        <h4>What you've spent for <%= this_month %></h4>
         <fieldset>
           <legend>Add new expense</legend>
           <%= form_for([@user, @user.expenses.build]) do |f| %>
@@ -85,7 +84,7 @@
               <br />
               <br />
               <div class="small-11 left columns">
-                <%= f.submit "Add Expense", :class => "button right" %>
+                <%= f.submit "Add Expense for #{this_month}", :class => "small button right" %>
               </div>
             </div>
           <% end %>
@@ -125,7 +124,7 @@
                   </td>
                   <td>
                     <%= expense.date_added.strftime("%A, %B %d") %> | 
-                    <%= link_to 'delete', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" } %>
+                    <%= link_to 'remove', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" } %>
                   </td>
                 </tr>
               <% end %>

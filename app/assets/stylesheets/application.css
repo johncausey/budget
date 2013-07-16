@@ -53,7 +53,7 @@ a:hover { border-bottom: 1px solid; }
 .header-span {
   margin-bottom: 20px;
   color: #FFFFFF;
-  border-bottom: 5px solid #ADADAD;
+  /*border-bottom: 5px solid #ADADAD;*/
   background-color: #3D92DB;
 }
 

@@ -13,15 +13,14 @@
       <li class="active"><%= link_to "Savings", savings_path %></li>
       <li><%= link_to "Expenses", expenses_path %></li>
       <li><%= link_to "Income", incomes_path %></li>
-      <li><a href="#">Progress for <%= Time.now.strftime("%Y") %></a></li>
       <li class="divider"></li>
-      <li><%= link_to "Account Information", edit_user_path(current_user) %></li>
+      <li><%= link_to "Account Information", account_information_path %></li>
     </ul>
   </div>
   <div class="large-9 columns">
     <div class="row">
       <div class="large-12 columns">
-        <h3>Saving a little sumthin' each month</h3>
+        <h4>Saving a little sumthin' each month</h4>
         <fieldset>
           <legend>Set your saving goal for <%= this_month %></legend>
           <%= form_for([@user, @user.savings.build]) do |f| %>
@@ -60,7 +59,6 @@
             <tr>
               <th>Date</th>
               <th>Monthly Saving Goal</th>
-              <th>Actual Amount Saved</th>
             </tr>
           </thead>
 
@@ -69,7 +67,6 @@
               <tr>
                 <td><%= saving.saving_month.strftime("%B, %Y") %></td>
                 <td><%= number_to_currency(saving.amount) %></td>
-                <td>calculated value here</td>
               </tr>
             <% end %>
           </tbody>

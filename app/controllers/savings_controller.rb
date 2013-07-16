@@ -14,11 +14,10 @@ class SavingsController < ApplicationController
   def create
     @user = current_user
     @saving = @user.savings.build(saving_params)
-
     if @saving.save
-      redirect_to savings_path, notice: "Added saving!"
+      redirect_to savings_path, notice: "Updated your saving goal for #{Date.today.strftime("%B")}"
     else
-      redirect_to savings_path, notice: "Failure in adding saving."
+      redirect_to savings_path, notice: "There was an error setting your new goal : ("
     end
   end
 

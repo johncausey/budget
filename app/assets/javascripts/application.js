@@ -37,6 +37,6 @@ $(document).ready(function(){
   $("div.alert-box").remove();
       });
  
-  }, 2000);
+  }, 4000);
 });
 
