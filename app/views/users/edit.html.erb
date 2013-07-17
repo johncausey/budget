@@ -19,9 +19,9 @@
   </div>
   <div class="large-9 columns">
     <div class="row">
-      <div class="large-8 columns">
-        <h4>Hello!</h4>
+      <div class="large-7 columns">
         <div class="large-12 columns">
+          <h4>Account Information</h4>
           <%= form_for @user do |f| %>
             <%= f.label :first_name %>
             <%= f.text_field :first_name %><br />
@@ -29,9 +29,26 @@
             <%= f.label :last_name %>
             <%= f.text_field :last_name %><br />
 
-            <%= f.submit :class => "small button" %>
+            <%= f.submit "Save Account Information", :class => "small button right" %>
           <% end %>
         </div>
+      </div>
+      <div class="large-5 columns">
+        <p>
+          Thanks for joining!
+        </p>
+        <p>
+          Here you can update a little more about yourself. Currently all of this is just to make the experience better, so feel free to leave it blank.
+        </p>
+        <p>
+          Why isn't there more account information?
+        </p>
+        <p>
+          Well, simply put, we just don't need anything else. We're committed to keeping your information private and we won't sell your information to anyone either. If we don't have it, we can't sell it!
+        </p>
+        <p>
+          We appreciate your support and hope you find this software useful. Feel free to <%= link_to "contact us" %> if you have any suggestions, questions, concerns, or would simply like to say hi.
+        </p>
       </div>
     </div>
   </div>

@@ -24,9 +24,7 @@ class SavingsController < ApplicationController
   def destroy
     @saving = Saving.find(params[:id])
     @saving.destroy
-    respond_to do |format|
-      format.html { redirect_to savings_url }
-    end
+    redirect_to savings_path
   end
 
   private

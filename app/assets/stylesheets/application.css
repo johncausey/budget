@@ -29,7 +29,7 @@ a:hover { border-bottom: 1px solid; }
 
 .custom-expense-lineheight { line-height: 150%; }
 
-.header-span h3 { color: #FFFFFF; }
+.header-span h3 { color: #3D92DB; }
 
 .main-nav {
   }.main-nav ul {
@@ -42,8 +42,8 @@ a:hover { border-bottom: 1px solid; }
     padding: 10px;
   }
 
-.header-links a { color: #FFFFFF; border-bottom: none; text-decoration: none; }
-.header-links a:hover { border-bottom: 2px solid; color: #FFFFFF; }
+.header-links a { color: #3D92DB; border-bottom: none; text-decoration: none; }
+.header-links a:hover { border-bottom: 1px solid; color: #3D92DB; }
 
 .footer-links { font-size: 14px; }
 .footer-company { font-size: 14px; }
@@ -52,9 +52,10 @@ a:hover { border-bottom: 1px solid; }
 
 .header-span {
   margin-bottom: 20px;
-  color: #FFFFFF;
-  /*border-bottom: 5px solid #ADADAD;*/
-  background-color: #3D92DB;
+  color: #333;
+  border-bottom: 5px solid #3D92DB;
+  /*background-color: #3D92DB;*/
+  background-color: #FFFFFF;
 }
 
 

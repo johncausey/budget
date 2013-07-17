@@ -20,14 +20,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    
-    respond_to do |format|
-      if @user.update_attributes(user_params)
-        flash[:notice] = 'Successfully updated'
-        format.html { redirect_to(root_url) }
-      else
-        format.html { render :action => "edit" }
-      end
+    if @user.update_attributes(user_params)
+      redirect_to current_month_path, :notice => "Successfully updated account information."
+    else
+      redirect_to current_month_path, :flash => { :alert => "There was an error updating your user information." }
     end
   end
 

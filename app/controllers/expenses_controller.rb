@@ -2,8 +2,8 @@ class ExpensesController < ApplicationController
 
   def index
     @user = current_user
-    @fixed_expenses = @user.expenses.where("date_added BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month).where(:fixed => true).to_a
-    @fluid_expenses = @user.expenses.where("date_added BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month).where(:fixed => false).to_a
+    @fixed_expenses = @user.expenses.where("date_added BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month).where(:fixed => true).order("date_added DESC").load
+    @fluid_expenses = @user.expenses.where("date_added BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month).where(:fixed => false).order("date_added DESC").load
   end
 
   def new

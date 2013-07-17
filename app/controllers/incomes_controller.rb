@@ -2,7 +2,7 @@ class IncomesController < ApplicationController
   
   def index
     @user = current_user
-    @incomes = @user.incomes.where("date_added BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month).load
+    @incomes = @user.incomes.where("date_added BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month).order("date_added DESC").load
   end
 
   def new
