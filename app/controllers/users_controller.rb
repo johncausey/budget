@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_filter do
+    params[:user] &&= user_params
+  end
+  load_and_authorize_resource
 
   def new
     @user = User.new

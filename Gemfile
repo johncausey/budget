@@ -6,6 +6,9 @@ gem 'rails', '4.0.0'
 # Development webserver
 gem 'thin'
 
+# Control authorization through the site
+gem 'cancan'
+
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 

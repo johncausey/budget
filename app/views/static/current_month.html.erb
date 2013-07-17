@@ -34,7 +34,7 @@
         <p><%= amount_spent %><span class="right"><%= saved_goal_this_month %></span></p>
         <%= main_total_bar %>
         <hr />
-        <%= content_tag :div, "", id: "monthly-expenses-chart", data: {expenses: Expense.chart_data} %>
+        <%= content_tag :div, "", id: "monthly-expenses-chart", data: {expenses: Expense.chart_data(current_user)} %>
       </div>
 
       <div class="row">

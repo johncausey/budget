@@ -20,8 +20,8 @@ class Expense < ActiveRecord::Base
 
 
   # This should be moved into the controller to properly associate the current user with expenses.
-  def self.chart_data(start = Time.zone.now.beginning_of_month)
-    total_amounts = amounts_by_day(start)
+  def self.chart_data(current_user_id, start = Time.zone.now.beginning_of_month)
+    total_amounts = amounts_by_day(current_user_id, start)
     # month_amounts = where(fixed: true).amounts_by_day(start)
     (start.to_date..Time.zone.now.end_of_month).map do |date|
       {
@@ -32,8 +32,8 @@ class Expense < ActiveRecord::Base
     end
   end
 
-  def self.amounts_by_day(start)
-    expenses = unscoped.where(date_added: start..Time.zone.now.end_of_month)
+  def self.amounts_by_day(current_user_id, start)
+    expenses = unscoped.where(:user_id => current_user_id).where(date_added: start..Time.zone.now.end_of_month)
     expenses = expenses.group('date(date_added)')
     expenses = expenses.order('date(date_added)')
     expenses = expenses.select('date(date_added) as date_added, sum(amount) as total_amount')

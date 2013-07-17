@@ -46,15 +46,14 @@ a:hover { border-bottom: 1px solid; }
 .header-links a:hover { border-bottom: 1px solid; color: #3D92DB; }
 
 .footer-links { font-size: 14px; }
-.footer-company { font-size: 14px; }
+.footer-company { font-size: 14px; color: #D7D7D7; }
 
 .drop-signin-form { width: 500px; }
 
 .header-span {
   margin-bottom: 20px;
   color: #333;
-  border-bottom: 5px solid #3D92DB;
-  /*background-color: #3D92DB;*/
+  border-bottom: 1px solid #3D92DB;
   background-color: #FFFFFF;
 }
 

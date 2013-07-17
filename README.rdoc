@@ -1,3 +1,10 @@
 == Things to do
 
-If a user adds an income or expense without a date it'll fall through the cracks. Date is needed.
+- Check all validations.
+- Add mail system.
+- Add new user signup email.
+- Add copy on the homepage.
+- Add legal information.
+- Add about information.
+- Add jobs information.
+- Add contact us area.

@@ -27,7 +27,7 @@
           <li class="right header-links"><%= link_to "Create an Account", signup_path, :class => "" %></li>
         <% end %>
         <% if current_user %>
-          <li class="right"><%= link_to "View my Budget", current_month_path %></li>
+          <li class="right"><%= link_to "Overview for #{this_month}", current_month_path %></li>
           <li class="right">Logged in as <%= current_user.full_name %></li>
         <% end %>
         

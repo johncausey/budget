@@ -1,4 +1,8 @@
 class IncomesController < ApplicationController
+  before_filter do
+    params[:income] &&= income_params
+  end
+  load_and_authorize_resource
   
   def index
     @user = current_user

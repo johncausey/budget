@@ -1,4 +1,8 @@
 class ExpensesController < ApplicationController
+  before_filter do
+    params[:expense] &&= expense_params
+  end
+  load_and_authorize_resource
 
   def index
     @user = current_user
