@@ -10,16 +10,7 @@ class Expense < ActiveRecord::Base
     write_attribute(:amount, value)
   end
 
-  # def self.total_grouped_by_day(start)
-  #   expenses = where(date_added: start.beginning_of_day..Time.zone.now)
-  #   expenses = expenses.group("date(date_added)")
-  #   expenses = expenses.select("date_added, sum(amount) as total_spent")
-  #   expenses.group_by { |e| e.date_added.to_date }
-  # end
 
-
-
-  # This should be moved into the controller to properly associate the current user with expenses.
   def self.chart_data(current_user_id, start = Time.zone.now.beginning_of_month)
     total_amounts = amounts_by_day(current_user_id, start)
     # month_amounts = where(fixed: true).amounts_by_day(start)

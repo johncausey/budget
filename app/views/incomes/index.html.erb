@@ -11,7 +11,16 @@
 
 <div class="row">
   <div class="large-12 columns">
-    <h1><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h1>
+    <div class="row">
+      <div class="large-6 columns">
+        <h2><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h2>
+      </div>
+      <div class="large-6 columns">
+        <br />
+        <br />
+        <h4 class="right"><%= how_much_money_is_left %></h4>
+      </div>
+    </div>
     <hr />
   </div>
 </div>
@@ -30,9 +39,9 @@
   <div class="large-9 columns">
     <div class="row">
       <div class="large-8 columns">
-        <h4>What you've made for <%= this_month %></h4>
+        <h4>List of income sources for <%= this_month %></h4>
         <fieldset>
-          <legend>Add incoming cash</legend>
+          <legend>Add new sources of income here</legend>
           <%= form_for([@user, @user.incomes.build]) do |f| %>
             <div class="row">
               <div class="small-10 columns">

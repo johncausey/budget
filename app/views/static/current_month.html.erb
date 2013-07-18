@@ -5,14 +5,32 @@
       data: $('#monthly-expenses-chart').data('expenses'),
       xkey: 'date_added',
       ykeys: ['amount'],
+      xLabelFormat: function(date) {
+          return date.getMonth()+1+'/'+date.getDate()+'/'+date.getFullYear(); 
+          },
       labels: ['Money spent'],
-      preUnits: '$'
+      preUnits: '$',
+      dateFormat: function(date_added) {
+          d = new Date(date_added);
+          var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+          var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+          return (days[ d.getDay()])+' '+(months[ d.getMonth()])+' '+d.getDate();
+          },
     });
   });
 </script>
 <div class="row">
   <div class="large-12 columns">
-    <h1><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h1>
+    <div class="row">
+      <div class="large-6 columns">
+        <h2><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h2>
+      </div>
+      <div class="large-6 columns">
+        <br />
+        <br />
+        <h4 class="right"><%= how_much_money_is_left %></h4>
+      </div>
+    </div>
     <hr />
   </div>
 </div>
@@ -34,6 +52,9 @@
         <p><%= amount_spent %><span class="right"><%= saved_goal_this_month %></span></p>
         <%= main_total_bar %>
         <hr />
+        <br />
+        <br />
+        <h4 class="text-center">Spending overview for <%= this_month %></h4>
         <%= content_tag :div, "", id: "monthly-expenses-chart", data: {expenses: Expense.chart_data(current_user)} %>
       </div>
 
