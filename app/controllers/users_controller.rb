@@ -11,8 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to root_url, notice: "Thank you for signing up!"
+      cookies[:auth_token] = @user.auth_token
+      redirect_to current_month_path, notice: "Welcome to RainyBudget!"
     else
       render "new"
     end

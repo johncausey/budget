@@ -103,10 +103,10 @@
       <div class="large-4 columns">
         <h5>What's an expense?</h5>
         <p>
-          Expenses are everywhere! An expense is anything you spend money on during this month.
+          An expense is anything you use money for during this month.
         </p>
         <p>
-          A <em>fixed</em> expense is anything that you pay each month, this includes rent, car payments, cable, phone bill, and others. Even if the price changes, it's still a fixed expense if you pay it each month.
+          A <em>fixed</em> expense is anything that you pay each month, this includes rent, car payments, phone bill, and others. Even if the price changes, it's still a fixed expense if you pay it each month.
           <br />
           A <em>fluid</em> expense is everything else- coffee, food, registrations, clothing, etc.
         </p> 
@@ -125,15 +125,26 @@
               </tr>
             </thead>
             <tbody>
-              <% @fixed_expenses.each do |expense| %>
+              <% if @fixed_expenses.exists? %>
+                <% @fixed_expenses.each do |expense| %>
+                  <tr>
+                    <td style="width: 65%">
+                      <%= number_to_currency(expense.amount) %> &nbsp; 
+                      <%= expense.name %>
+                    </td>
+                    <td>
+                      <%= expense.date_added.strftime("%A, %B %d") %> | 
+                      <%= link_to 'remove', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" } %>
+                    </td>
+                  </tr>
+                <% end %>
+              <% else %>
                 <tr>
                   <td style="width: 65%">
-                    <%= number_to_currency(expense.amount) %> &nbsp; 
-                    <%= expense.name %>
+                    <h5>Currently no fixed expenses</h5>
                   </td>
                   <td>
-                    <%= expense.date_added.strftime("%A, %B %d") %> | 
-                    <%= link_to 'remove', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" } %>
+                    
                   </td>
                 </tr>
               <% end %>
@@ -147,24 +158,31 @@
               </tr>
             </thead>
             <tbody>
-              <% @fluid_expenses.each do |expense| %>
+              <% if @fluid_expenses.exists? %>
+                <% @fluid_expenses.each do |expense| %>
+                  <tr>
+                    <td style="width: 65%">
+                      <%= number_to_currency(expense.amount) %> &nbsp;
+                      <%= expense.name %>
+                    </td>
+                    <td><%= expense.date_added.strftime("%A, %B %d") %> | 
+                    <%= link_to 'remove', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" } %></td>
+                  </tr>
+                <% end %>
+              <% else %>
                 <tr>
                   <td style="width: 65%">
-                    <%= number_to_currency(expense.amount) %> &nbsp;
-                    <%= expense.name %>
+                    <h5>Currently no fluid expenses</h5>
                   </td>
-                  <td><%= expense.date_added.strftime("%A, %B %d") %> | 
-                  <%= link_to 'remove', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" } %></td>
+                  <td>
+                    
+                  </td>
                 </tr>
-              <% end %>
+                <% end %>
             </tbody>
           </table>
       </div>
     </div>
-
-
-
-
   </div>
 
 </div>

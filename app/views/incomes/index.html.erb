@@ -102,14 +102,25 @@
         </tr>
       </thead>
       <tbody>
-        <% @incomes.each do |income| %>
+        <% if @incomes.exists? %>
+          <% @incomes.each do |income| %>
+            <tr>
+              <td style="width: 65%">
+                <%= number_to_currency(income.amount) %> &nbsp;
+                <%= income.name %>
+              </td>
+              <td><%= income.date_added.strftime("%A, %B %d") %> | 
+              <%= link_to 'remove', income, method: :delete, data: { confirm: "Are you sure you want to remove this income?" } %></td>
+            </tr>
+          <% end %>
+        <% else %>
           <tr>
             <td style="width: 65%">
-              <%= number_to_currency(income.amount) %> &nbsp;
-              <%= income.name %>
+              <h5>No income has been entered yet</h5>
             </td>
-            <td><%= income.date_added.strftime("%A, %B %d") %> | 
-            <%= link_to 'Remove', income, method: :delete, data: { confirm: "Are you sure you want to remove this income?" } %></td>
+            <td>
+
+            </td>
           </tr>
         <% end %>
       </tbody>

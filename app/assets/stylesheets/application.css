@@ -14,6 +14,11 @@
  *= require foundation_and_overrides
  */
 
+.legal-text { font-size: 12px; }
+.legal-text p { padding-left: 15px; }
+.legal-text ol { padding-left: 30px; }
+.legal-text ul { padding-left: 30px; }
+
 .ui-datepicker-next { display: none; }
 .ui-datepicker-prev { display: none; }
 
@@ -29,7 +34,7 @@ a:hover { border-bottom: 1px solid; }
 
 .custom-expense-lineheight { line-height: 150%; }
 
-.header-span h3 { color: #3D92DB; }
+.header-span h3 { color: #3B35DE; }
 
 .main-nav {
   }.main-nav ul {
@@ -42,8 +47,8 @@ a:hover { border-bottom: 1px solid; }
     padding: 10px;
   }
 
-.header-links a { color: #3D92DB; border-bottom: none; text-decoration: none; }
-.header-links a:hover { border-bottom: 1px solid; color: #3D92DB; }
+.header-links a { color: #3B35DE; border-bottom: none; text-decoration: none; }
+.header-links a:hover { border-bottom: 1px solid; color: #3B35DE; }
 
 .footer-links { font-size: 14px; }
 .footer-company { font-size: 14px; color: #D7D7D7; }
@@ -53,8 +58,11 @@ a:hover { border-bottom: 1px solid; }
 .header-span {
   margin-bottom: 20px;
   color: #333;
-  border-bottom: 1px solid #3D92DB;
-  background-color: #FFFFFF;
+  /*border-bottom: 1px solid #3B35DE;*/
+  background-color: #FAFAFA;
+  -webkit-box-shadow: 0px 0px 8px 2px #CCCCCC;
+       -moz-box-shadow: 0px 0px 8px 2px #CCCCCC;
+            box-shadow: 0px 0px 8px 2px #CCCCCC;
 }
 
 

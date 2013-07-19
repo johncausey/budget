@@ -9,7 +9,12 @@ module ApplicationHelper
   end
 
   def saving
-    current_user.savings.where("saving_month BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month).first.amount
+    cs = current_user.savings.where("saving_month BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month)
+    if cs.exists?
+      cs.first.amount
+    else
+      cs.first
+    end
   end
 
   def money_used
@@ -17,8 +22,7 @@ module ApplicationHelper
   end
 
   def incomes
-    a = current_user.incomes.where("date_added BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month).load.to_a.sum(&:amount)
-    a == 0 ? 1 : a
+    current_user.incomes.where("date_added BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month).load.to_a.sum(&:amount)
   end
 
   def remainder
@@ -26,6 +30,7 @@ module ApplicationHelper
   end
 
   def percent(a,b)
+    b == 0 ? b = 1 : b
     a/b*100
   end
 
@@ -34,8 +39,10 @@ module ApplicationHelper
       "Your remaining balance is #{number_to_currency(remainder)}"
     elsif remainder < 0
       "<span class='fluid-font'>You are over budget by #{number_to_currency(remainder.abs)}</span>".html_safe
-    else
+    elsif remainder == 0 && expenses > 0
       "<span class='saving-font'>You have successfully made budget this month!</span>".html_safe
+    else
+      "<span style='font-size: 14px;'>Add expenses, income, and set a savings goal to get started for #{this_month}.</span>".html_safe
     end
   end
 

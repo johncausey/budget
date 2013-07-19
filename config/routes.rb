@@ -1,5 +1,8 @@
 Budget::Application.routes.draw do
 
+  get 'about', to: 'static#about', as: 'about'
+  get 'legal', to: 'static#legal', as: 'legal'
+
 
   get 'current_month', to: 'static#current_month', as: 'current_month'
   get 'signup', to: 'users#new', as: 'signup'
