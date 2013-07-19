@@ -10,26 +10,43 @@ class Expense < ActiveRecord::Base
     write_attribute(:amount, value)
   end
 
+  COMMON_YEAR_DAYS_IN_MONTH = [nil, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+  def days_in_month(month, year = Time.now.year)
+    return 29 if month == 2 && Date.gregorian_leap?(year)
+    COMMON_YEAR_DAYS_IN_MONTH[month]
+  end
+
 
   def self.chart_data(current_user_id, start = Time.zone.now.beginning_of_month)
-    total_amounts = amounts_by_day(current_user_id, start)
-    # month_amounts = where(fixed: true).amounts_by_day(start)
+    fluid_amounts = fluid_amounts_by_day(current_user_id, start)
+    fixed_amounts = where(fixed: true).fixed_amounts_by_day(current_user_id, start)
     (start.to_date..Time.zone.now.end_of_month).map do |date|
       {
         date_added: date,
-        amount: total_amounts[date] || 0#,
-        # montly_amount: month_amounts[date] || 0
+        fluid_amount: fluid_amounts[date] || 0,
+        fixed_amount: fixed_amounts[date] || 0
       }
     end
   end
 
-  def self.amounts_by_day(current_user_id, start)
-    expenses = unscoped.where(:user_id => current_user_id).where(date_added: start..Time.zone.now.end_of_month)
+  def self.fluid_amounts_by_day(current_user_id, start)
+    expenses = unscoped.where(:user_id => current_user_id).where(date_added: start..Time.zone.now.end_of_month).where(:fixed => false)
     expenses = expenses.group('date(date_added)')
     expenses = expenses.order('date(date_added)')
-    expenses = expenses.select('date(date_added) as date_added, sum(amount) as total_amount')
+    expenses = expenses.select('date(date_added) as date_added, sum(amount) as fluid_amount')
     expenses.each_with_object({}) do |expense, amounts|
-      amounts[expense.date_added.to_date] = expense.total_amount
+      amounts[expense.date_added.to_date] = expense.fluid_amount
+    end
+  end
+
+  def self.fixed_amounts_by_day(current_user_id, start)
+    expenses = unscoped.where(:user_id => current_user_id).where(date_added: start..Time.zone.now.end_of_month).where(:fixed => true)
+    expenses = expenses.group('date(date_added)')
+    expenses = expenses.order('date(date_added)')
+    expenses = expenses.select('date(date_added) as date_added, sum(amount) as fixed_amount')
+    expenses.each_with_object({}) do |expense, amounts|
+      amounts[expense.date_added.to_date] = expense.fixed_amount
     end
   end
 
