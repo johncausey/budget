@@ -670,7 +670,7 @@
       lineWidth: 3,
       pointSize: 4,
       // lineColors: ['#0b62a4', '#7A92A3', '#4da74d', '#afd8f8', '#edc240', '#cb4b4b', '#9440ed'],
-      lineColors: ['#3B35DE', '#7A92A3', '#4da74d', '#afd8f8', '#edc240', '#cb4b4b', '#9440ed'],
+      lineColors: ['#DC143C', '#228B22', '#3D92DB', '#afd8f8', '#edc240', '#cb4b4b', '#9440ed'],
       pointWidths: [1],
       pointStrokeColors: ['#ffffff'],
       pointFillColors: [],

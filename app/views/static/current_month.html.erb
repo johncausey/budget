@@ -4,12 +4,15 @@
       element: 'monthly-expenses-chart',
       data: $('#monthly-expenses-chart').data('expenses'),
       xkey: 'date_added',
-      ykeys: ['fluid_amount', 'fixed_amount'],
+      ykeys: ['fluid_amount', 'daily_saving', 'daily_fixed'],
       xLabelFormat: function(date) {
           return date.getMonth()+1+'/'+date.getDate()+'/'+date.getFullYear(); 
           },
-      labels: ['Fluid Expenses', 'Fixed Cost'],
+      labels: ['Fluid Spending', 'Average Saving Cost', 'Average Fixed Cost'],
       preUnits: '$',
+      pointSize: 1,
+      lineWidth: 1,
+      fillOpacity: 0.75,
       dateFormat: function(date_added) {
           d = new Date(date_added);
           var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
