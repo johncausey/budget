@@ -4,29 +4,41 @@
   <br />
   <br />
   <div class="large-5 columns">
-    <h3>Create your new account</h3>
+    <h3>Contact our support team</h3>
     <p>
-      Welcome to rainybudget.com!
+      You may contact us using the form to the right. This is the place for any general contact, questions, and even support and account issues you may have.
     </p>
     <p>
-      Creating an account with rainybudget.com is free right now, and creating an account with us during our launch phase means your account will always be free! It's our way of saying thanks.
+      Response time is generally the next day, but could be longer depending on how busy we are.
+      <br />
+      <br />
+      Thanks!
     </p>
   </div>
 
   <div class="large-7 columns">
     <fieldset>
-      <legend>Register with rainybudget.com</legend>
-      <%= form_for @user do |f| %>
-        <% if @user.errors.any? %>
+      <legend>Send us a message</legend>
+      <%= form_for @message do |f| %>
+        <% if @message.errors.any? %>
           <div class="small-10 columns">
             <label class="error">Oh no! Your form could not be saved.</label>
-            <% @user.errors.full_messages.each do |message| %>
+            <% @message.errors.full_messages.each do |message| %>
               <%= message %>
               <br />
             <% end %>
             <hr />
           </div>
         <% end %>
+
+        <div class="small-10 columns">
+          <div class="small-5 columns">
+            <%= f.label :name, "Full Name", :class => "right inline" %>
+          </div>
+          <div class="small-7 columns">
+            <%= f.text_field :name %>
+          </div>
+        </div>
 
         <div class="small-10 columns">
           <div class="small-5 columns">
@@ -39,25 +51,16 @@
 
         <div class="small-10 columns">
           <div class="small-5 columns">
-            <%= f.label :password, "Password", :class => "right inline" %>
+            <%= f.label :body, "Message Content", :class => "right inline" %>
           </div>
           <div class="small-7 columns">
-            <%= f.password_field :password %>
-          </div>
-        </div>
-
-        <div class="small-10 columns">
-          <div class="small-5 columns">
-            <%= f.label :password_confirmation, "Confirm Password", :class => "right inline" %>
-          </div>
-          <div class="small-7 columns">
-            <%= f.password_field :password_confirmation %>
+            <%= f.text_area :body, :style => "height: 150px" %>
           </div>
         </div>
 
         <div class="small-10 left columns">
           <br />
-          <%= f.submit "Create Account", :class => "button right" %>
+          <%= f.submit "Contact us!", :class => "button right" %>
         </div>
       <% end %>
     </fieldset>

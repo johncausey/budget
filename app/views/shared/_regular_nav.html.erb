@@ -3,6 +3,13 @@
 
   <div class="row">
     <div class="large-4 columns">
+      <div class="header-logo">
+        <% if current_user %>
+          <%= link_to(image_tag("rainybudgetlogo.png", :style => "margin: 10px 0px 10px 0px"), current_month_path) %>
+        <% else %>
+          <%= link_to(image_tag("rainybudgetlogo.png", :style => "margin: 10px 0px 10px 0px"), root_url) %>
+        <% end %>
+      </div>
     </div>
 
     <div class="large-8 columns main-nav">

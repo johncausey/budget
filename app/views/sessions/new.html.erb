@@ -1,14 +1,21 @@
 <div class="row">
+  <br />
+  <br />
+  <br />
+  <br />
   <div class="large-5 columns">
-    <h3>Sign in form</h3>
+    <h3>Sign in to your account</h3>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Welcome back!
+    </p>
+    <p>
+      Sign in with the form to the right. You can also use the drop down on the top menu bar to have us remember you- this way you won't have to log in next time. Just remember to only use this feature on your personal computer at home and not a public computer.
     </p>
   </div>
 
   <div class="large-7 columns">
     <fieldset>
-      <legend>Log Into Budget</legend>
+      <legend>Login to rainybudget.com</legend>
       <%= form_tag sessions_path do %>
         <div class="small-10 columns">
           <div class="small-5 columns">
@@ -29,6 +36,7 @@
         </div>
 
         <div class="small-10 left columns">
+          <br />
           <%= submit_tag "Log In", :class => "button right" %>
         </div>
       <% end %>

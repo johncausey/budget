@@ -1,21 +1,33 @@
-<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+<div class="row">
+  <br />
+  <br />
+  <br />
+  <br />
+  <div class="large-6 large-offset-3 columns">
+    <h4>Reset your Password</h4>
+    <p>
+      Please enter your new password below. Once saved your new password will work immediately and you will not be able to access your account with your old password.
+    </p>
+    <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+      <% if @user.errors.any? %>
+        <div class="error_messages">
+          <h2>Form is invalid</h2>
+          <ul>
+            <% for message in @user.errors.full_messages %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation, "Password Confirmation" %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <%= f.submit "Save new password", :class => "button right" %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions"><%= f.submit "Update Password" %></div>
-<% end %>
+</div>

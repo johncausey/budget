@@ -14,6 +14,7 @@
  *= require foundation_and_overrides
  */
 
+
 .legal-text { font-size: 12px; }
 .legal-text p { padding-left: 15px; }
 .legal-text ol { padding-left: 30px; }
@@ -22,11 +23,11 @@
 .ui-datepicker-next { display: none; }
 .ui-datepicker-prev { display: none; }
 
-.forgot-remember { font-size: 14px; }
-.forgot-remember a { color: #3D92DB !important; }
-
 a { border-bottom: 1px solid #FFFFFF; }
 a:hover { border-bottom: 1px solid; }
+
+.forgot-remember { font-size: 14px; }
+.forgot-remember a { color: #3D92DB !important; }
  
 .fixed-font { color: #3D92DB; }
 .fluid-font { color: #DC143C; }
@@ -34,7 +35,7 @@ a:hover { border-bottom: 1px solid; }
 
 .custom-expense-lineheight { line-height: 150%; }
 
-.header-span h3 { color: #3B35DE; }
+.header-span h3 { color: #0097d6; }
 
 .main-nav {
   }.main-nav ul {
@@ -47,8 +48,10 @@ a:hover { border-bottom: 1px solid; }
     padding: 10px;
   }
 
-.header-links a { color: #3B35DE; border-bottom: none; text-decoration: none; }
-.header-links a:hover { border-bottom: 1px solid; color: #3B35DE; }
+.header-links a { color: #0097d6; border-bottom: none; text-decoration: none; }
+.header-links a:hover { border-bottom: 1px solid; color: #0097d6; }
+
+.header-logo a:hover { border: 0px solid; text-decoration: none !important; }
 
 .footer-links { font-size: 14px; }
 .footer-company { font-size: 14px; color: #D7D7D7; }
@@ -64,7 +67,6 @@ a:hover { border-bottom: 1px solid; }
        -moz-box-shadow: 0px 0px 8px 2px #CCCCCC;
             box-shadow: 0px 0px 8px 2px #CCCCCC;
 }
-
 
 
 .morris-hover{position:absolute;z-index:1000;}.morris-hover.morris-default-style{border-radius:10px;padding:6px;color:#666;background:rgba(255, 255, 255, 0.8);border:solid 2px rgba(230, 230, 230, 0.8);font-family:sans-serif;font-size:12px;text-align:center;}.morris-hover.morris-default-style .morris-hover-row-label{font-weight:bold;margin:0.25em 0;}

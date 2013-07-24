@@ -1,5 +1,6 @@
 Budget::Application.routes.draw do
 
+  get 'contact_us', to: 'messages#new', as: 'contact_us'
   get 'about', to: 'static#about', as: 'about'
   get 'legal', to: 'static#legal', as: 'legal'
 
@@ -23,6 +24,7 @@ Budget::Application.routes.draw do
   resources :sessions
   resources :savings
   resources :password_resets
+  resources :messages
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
