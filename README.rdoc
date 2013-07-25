@@ -1,9 +1,11 @@
-== Things to do
+== rainybudget.com
 
-Change the line graph to an area graph that shows fixed and savings as base amounts for each day, and fluid spending either spikes above or under.
+The easiest budget software around.
 
-- Check all validations.
-- Add mail system.
-- Add new user signup email.
-- Add copy on the homepage.
-- Add contact us area.
+- Make sure to change picture location in send emails (for production src).
+- Add two pictures to the main homepage.
+- Add picture of software screen to about page.
+- Make the login page nicer and centerd.
+- Add better copy to create new user page. Maybe add images.
+
+- Consider text ability to add expenses.
