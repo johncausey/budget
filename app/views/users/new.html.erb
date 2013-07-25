@@ -4,26 +4,33 @@
   <br />
   <br />
   <div class="large-5 columns">
-    <h3>Create your new account</h3>
-    <p>
-      Welcome to rainybudget.com!
-    </p>
+    <h2>Welcome!</h2>
     <p>
       Creating an account with rainybudget.com is free right now, and creating an account with us during our launch phase means your account will always be free! It's our way of saying thanks.
     </p>
+    <h4>Simplifying your money.</h4>
+    <p>
+      How does rainybudget.com work?
+    </p>
+    <ol style="padding: 0px 0px 0px 30px;">
+      <li>Enter expenses to track spending.</li>
+      <li>Record your income for the current month.</li>
+      <li>Pick an amount you want to set aside for savings.</li>
+    </ol>
+    <p>
+      And that's it. Each month you'll be able to see exactly how much you have left to spend, and as long as you don't go over, you'll be saving money!
+    </p>
+    <p>
+      Thank you! We hope you enjoy using rainybudget.com.
+    </p>
   </div>
 
-  <div class="large-7 columns">
-    <fieldset>
-      <legend>Register with rainybudget.com</legend>
+  <div class="large-6 columns" style="margin: 100px 0px 0px 0px;">
+    <fieldset style="padding-top: 40px;">
       <%= form_for @user do |f| %>
         <% if @user.errors.any? %>
           <div class="small-10 columns">
-            <label class="error">Oh no! Your form could not be saved.</label>
-            <% @user.errors.full_messages.each do |message| %>
-              <%= message %>
-              <br />
-            <% end %>
+            <label class="error">Your account could not be created!<br /><br /> Please make sure you're using a valid email address and your passwords match.</label>
             <hr />
           </div>
         <% end %>
@@ -55,9 +62,9 @@
           </div>
         </div>
 
-        <div class="small-10 left columns">
+        <div class="small-12 left columns">
           <br />
-          <%= f.submit "Create Account", :class => "button right" %>
+          <%= f.submit "Create my new account", :class => "button right" %>
         </div>
       <% end %>
     </fieldset>

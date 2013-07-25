@@ -1,5 +1,9 @@
 class StaticController < ApplicationController
 
+  def index
+    @user = User.new
+  end
+
   def current_month
     @user = current_user
     if @user

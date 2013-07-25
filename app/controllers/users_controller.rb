@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
-    UserMailer.new_user_signup(@user).deliver if @user
     if @user.save
       cookies[:auth_token] = @user.auth_token
+      UserMailer.new_user_signup(@user).deliver
       redirect_to current_month_path, notice: "Welcome to RainyBudget!"
     else
       render "new"

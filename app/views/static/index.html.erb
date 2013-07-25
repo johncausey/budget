@@ -2,18 +2,26 @@
 
 <div class="row">
   <div class="large-12 columns">
-    <br />
-    <br />
-    <img src="http://placehold.it/700x300&text=Image One">
-    <img class="right" src="http://placehold.it/300x300&text=Image Two">
-    <br />
-    <br />
-    <br />
-
-    <hr>
+    <div class="row">
+      <div class="large-7 columns index-mainbox">
+        <h2>Simplified Personal Budgeting <br /><small>Easy budgeting for regular people.</small></h2>
+        <p>
+          Personal finance doesn't have to be difficult. No spreadsheets, no data dumps, no asset-tracking, no confusion. Keeping your money simple helps you focus on things that matter- without feeling guilty about spending.
+        </p>
+        <p>
+          Spend, save, and escape debt. Create an account today to get started!
+        </p>
+        <p style="margin-top: 50px;">
+          <%= link_to "Let's get started &raquo;".html_safe, signup_path, :class => "button large" %>
+        </p>
+      </div>
+      <div class="computerimage">
+        <%= image_tag("rainycomputer.png", :class => "right", :style => "margin: 50px 0px 100px 0px;") %>
+      </div>
+    </div>
   </div>
 </div>
-
+<hr />
 
 <div class="row">
   <div class="large-4 columns">
@@ -48,7 +56,7 @@
     <br />
     <div class="row">
       <div class="large-10 large-offset-1 columns">
-        <h3>Beta month announced.</h3>
+        <h3>Beta month announced!</h3>
         <p>
           We're up and running live! During the beta phase we will be working through a few issues and bugs, but even so your data is still safe. Feel free to <%= link_to "create an account", new_user_path %> and you will be designated as an original supporter; giving you extra benefits later in the life of rainybudget.com.
         </p>
