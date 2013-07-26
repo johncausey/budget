@@ -15,10 +15,8 @@
  */
 
 
-.index-mainbox {
-  margin-top: 30px;
-  padding: 0px 20px 20px 20px;
-}
+.index-mainbox { margin-top: 10px; padding: 0px 20px 20px 20px; }
+.login-box { margin: 0px; padding: 20px 0px; }
 
 .legal-text { font-size: 12px; }
 .legal-text p { padding-left: 15px; }

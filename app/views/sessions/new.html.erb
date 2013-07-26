@@ -3,19 +3,11 @@
   <br />
   <br />
   <br />
-  <div class="large-5 columns">
-    <h3>Sign in to your account</h3>
-    <p>
-      Welcome back!
-    </p>
-    <p>
-      Sign in with the form to the right. You can also use the drop down on the top menu bar to have us remember you- this way you won't have to log in next time. Just remember to only use this feature on your personal computer at home and not a public computer.
-    </p>
-  </div>
 
-  <div class="large-7 columns">
+  <div class="large-6 large-offset-3 columns">
+    <h2 class="text-center">Welcome Back!</h2>
     <fieldset>
-      <legend>Login to rainybudget.com</legend>
+      <div class="login-box">
       <%= form_tag sessions_path do %>
         <div class="small-10 columns">
           <div class="small-5 columns">
@@ -35,11 +27,12 @@
           </div>
         </div>
 
-        <div class="small-10 left columns">
+        <div class="small-11 left columns">
           <br />
-          <%= submit_tag "Log In", :class => "button right" %>
+          <%= submit_tag "Access account", :class => "button right" %>
         </div>
       <% end %>
+    </div>
     </fieldset>
   </div>
 </div>
