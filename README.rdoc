@@ -2,10 +2,8 @@
 
 The easiest budget software around.
 
+- Fix abilities.
+- Add about copy.
 - Make sure to change picture location in send emails (for production src).
-- Add two pictures to the main homepage.
-- Add picture of software screen to about page.
-- Make the login page nicer and centerd.
-- Add better copy to create new user page. Maybe add images.
 
 - Consider text ability to add expenses.

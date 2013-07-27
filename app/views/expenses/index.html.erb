@@ -9,15 +9,13 @@
   });
 </script>
 <div class="row">
-  <div class="large-12 columns">
+  <div class="large-12 columns date-row">
     <div class="row">
-      <div class="large-6 columns">
-        <h2><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h2>
+      <div class="large-4 columns">
+        <h3><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h3>
       </div>
-      <div class="large-6 columns">
-        <br />
-        <br />
-        <h4 class="right"><%= how_much_money_is_left %></h4>
+      <div class="large-8 columns">
+        <h3 class="right"><%= how_much_money_is_left %></h3>
       </div>
     </div>
     <hr />
@@ -38,9 +36,8 @@
   <div class="large-9 columns">
     <div class="row">
       <div class="large-8 columns">
-        <h4>List of expenses for <%= this_month %></h4>
+        <h4>Expenses for <%= this_month %></h4>
         <fieldset>
-          <legend>Add new expenses here</legend>
           <%= form_for([@user, @user.expenses.build]) do |f| %>
             <div class="row">
               <div class="small-10 columns">
@@ -81,7 +78,7 @@
             <div class="row">
               <div class="small-10 columns">
                 <div class="small-6 columns">
-                  <%= f.label :date_added, "Date Added", :class => "right inline" %>
+                  <%= f.label :date_added, "Date Spent", :class => "right inline" %>
                 </div>
                 <div class="small-5 columns left">
                   <%= f.text_field :date_added, :id => "datepicker" %>
@@ -93,7 +90,7 @@
               <br />
               <br />
               <div class="small-11 left columns">
-                <%= f.submit "Add Expense for #{this_month}", :class => "small button right" %>
+                <%= f.submit "Add this Expense", :class => "small button right" %>
               </div>
             </div>
           <% end %>
@@ -103,12 +100,10 @@
       <div class="large-4 columns">
         <h5>What's an expense?</h5>
         <p>
-          An expense is anything you use money for during this month.
+          A <strong><em>fixed</em></strong> expense is anything that you pay each month, this includes rent, car payments, phone bill, and others. Even if the price changes, it's still a fixed expense if you pay it each month.
         </p>
         <p>
-          A <strong><em>fixed</em></strong> expense is anything that you pay each month, this includes rent, car payments, phone bill, and others. Even if the price changes, it's still a fixed expense if you pay it each month.
-          <br />
-          A <strong><em>fluid</em></strong> expense is everything else- coffee, food, registrations, clothing, etc.
+          A <strong><em>fluid</em></strong> expense is everything else- coffee, food, registrations, clothing, etc. Keeping fluid expenses low helps you save more each month.
         </p> 
       </div>
     </div>

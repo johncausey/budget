@@ -14,6 +14,8 @@
  *= require foundation_and_overrides
  */
 
+.user-account-info { font-size: 14px; }
+.date-row h3 { margin: 0px; padding: 0px; }
 
 .index-mainbox { margin-top: 10px; padding: 0px 20px 20px 20px; }
 .login-box { margin: 0px; padding: 20px 0px; }

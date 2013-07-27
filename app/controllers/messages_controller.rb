@@ -1,5 +1,8 @@
 class MessagesController < ApplicationController
-  
+  before_filter do
+    params[:message] &&= message_params
+  end
+  load_and_authorize_resource
 
   def new
     @message = Message.new

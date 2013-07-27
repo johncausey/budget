@@ -13,7 +13,8 @@ class UsersController < ApplicationController
     if @user.save
       cookies[:auth_token] = @user.auth_token
       UserMailer.new_user_signup(@user).deliver
-      redirect_to current_month_path, notice: "Welcome to RainyBudget!"
+      UserMailer.new_user_notify_admin(@user).deliver
+      redirect_to current_month_path, notice: "Welcome to rainybudget!"
     else
       render "new"
     end

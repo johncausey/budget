@@ -8,17 +8,14 @@
       });
   });
 </script>
-
 <div class="row">
-  <div class="large-12 columns">
+  <div class="large-12 columns date-row">
     <div class="row">
-      <div class="large-6 columns">
-        <h2><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h2>
+      <div class="large-4 columns">
+        <h3><%= Time.now.strftime("%A") %> <small><%= Time.now.strftime("%b %d, %Y") %></small></h3>
       </div>
-      <div class="large-6 columns">
-        <br />
-        <br />
-        <h4 class="right"><%= how_much_money_is_left %></h4>
+      <div class="large-8 columns">
+        <h3 class="right"><%= how_much_money_is_left %></h3>
       </div>
     </div>
     <hr />
@@ -39,9 +36,8 @@
   <div class="large-9 columns">
     <div class="row">
       <div class="large-8 columns">
-        <h4>List of income sources for <%= this_month %></h4>
+        <h4>Income for <%= this_month %></h4>
         <fieldset>
-          <legend>Add new sources of income here</legend>
           <%= form_for([@user, @user.incomes.build]) do |f| %>
             <div class="row">
               <div class="small-10 columns">
@@ -67,7 +63,7 @@
             <div class="row">
               <div class="small-10 columns">
                 <div class="small-6 columns">
-                  <%= f.label :date_added, "Date Added", :class => "right inline" %>
+                  <%= f.label :date_added, "Date Received", :class => "right inline" %>
                 </div>
                 <div class="small-5 columns left">
                   <%= f.text_field :date_added, :id => "datepicker" %>
@@ -79,7 +75,7 @@
               <br />
               <br />
               <div class="small-11 left columns">
-                <%= f.submit "Add income for #{this_month}", :class => "small button right" %>
+                <%= f.submit "Add this Income", :class => "small button right" %>
               </div>
             </div>
           <% end %>
@@ -87,12 +83,12 @@
       </div>
 
       <div class="large-4 columns">
-        <h5>Earned Money!</h5>
+        <h5>What counts as income?</h5>
         <p>
-          It's easy to think that what you make is fixed and won't change- but that's not always the case.
+          Your <strong><em>income</em></strong> is any money that you gain during this month. This could be regular paychecks, cash from a side hobby, or even just money you might find.
         </p>
         <p>
-          Money comes in just as it goes out, and it's okay to increase what comes in. Work to add income sources to save more.
+          Any money you're putting into your bank account this month counts as your income, increasing income means you can save and spend more each month.
         </p>
       </div>
     </div>

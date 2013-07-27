@@ -6,18 +6,19 @@
       <br />
     </p>
     <p>
-      Hello!
+      There is a new customer message from rainybudget.com.
     </p>
     <p>
-      Thank you for signing up to RainyBudget.com.
+      Name: <%= @message.name %>
     </p>
     <p>
-      Please note we are still in a beta phase, if you have any problems please don't hesitate to let us know and we'll be glad to fix them.
+      Email: <%= @message.email %>
     </p>
     <p>
-      Thanks,
-      <br />
-      The RainyBudget Team
+      Message:
+    </p>
+    <p>
+      <%= @message.body %>
     </p>
   </div>
 </html>

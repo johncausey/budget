@@ -9,12 +9,17 @@ class UserMailer < ActionMailer::Base
 
   def new_user_signup(user)
     @user = user
-    mail :to => user.email, :subject => "Welcome to RainyBudget!"
+    mail :to => user.email, :subject => "Welcome to rainybudget.com!"
+  end
+
+  def new_user_notify_admin(user)
+    @user = user
+    mail :to => "support@rainybudget.com", :subject => "New user signup at rainybudget.com"
   end
 
   def password_reset(user)
     @user = user
-    mail :to => user.email, :subject => "Password Reset Instructions - RainyBudget"
+    mail :to => user.email, :subject => "Password Reset Instructions - rainybudget.com"
   end
   
 end
