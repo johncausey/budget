@@ -9,8 +9,15 @@ gem 'thin'
 # Control authorization through the site
 gem 'cancan'
 
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
+# Use rspec as the testing framework
+gem 'rspec-rails', group: [:development, :test]
+
+# Test environment setup
+group :test do
+  gem 'factory_girl_rails', '4.2.1'
+  gem 'capybara'
+  gem 'guard-rspec'
+end
 
 # Use pg as the database for Active Record
 gem 'pg'
