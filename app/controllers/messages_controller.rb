@@ -10,8 +10,7 @@ class MessagesController < ApplicationController
   
   def create
     @message = Message.new(message_params)
-    if @message.save
-      MessageMailer.send_customer_message(@message).deliver
+    if @message.save && MessageMailer.send_customer_message(@message).deliver
       redirect_to root_url, notice: "Thank you! We will respond as soon as we can through email."
     else
       render "new"

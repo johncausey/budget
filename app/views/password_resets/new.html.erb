@@ -8,13 +8,14 @@
     <p>
       Please enter the email address associated with your account and we'll send an email with instructions to reset your password.
     </p>
-
-    <%= form_tag password_resets_path, :method => :post do %>
-      <div class="field">
-        <%= label_tag :email, "Email Address" %>
-        <%= text_field_tag :email, params[:email] %>
-      </div>
-      <%= submit_tag "Request new Password", :class => "button right" %>
-    <% end %>
+    <div class="password-reset-form">
+      <%= form_tag password_resets_path, :method => :post do %>
+        <div class="field">
+          <%= label_tag :email, "Email Address" %>
+          <%= text_field_tag :email, params[:email] %>
+        </div>
+        <%= submit_tag "Request new Password", :class => "button right" %>
+      <% end %>
+    </div>
   </div>
 </div>

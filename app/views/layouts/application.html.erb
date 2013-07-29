@@ -6,15 +6,14 @@
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
   <head>
   	<meta charset="utf-8" />
-
+    <title><%= content_for?(:title) ? yield(:title) : "rainybudget.com - Simple Zero-based budget that works." %></title>
+    <meta name="description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : 'rainybudget.com - The easiest personal finance zero-based budget website around.' %>" />
+    <meta name="keywords" content="<%= content_for?(:meta_keywords) ? yield(:meta_keywords) : 'rainybudget, zero-based budget, zero-sum budget, simple online budget, simple budget, personal finance, save money' %>" />
   	<!-- Uncomment to make IE8 render like IE7 -->
   	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
-
   	<!-- Set the viewport width to device width for mobile -->
     <link rel="rainybudget icon" href="/favicon.ico?v=2" />
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  	<title><%= content_for?(:title) ? yield(:title) : "rainybudget.com - Simple Zero-based budget that works." %></title>
-
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= javascript_include_tag "application" %>

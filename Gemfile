@@ -10,13 +10,17 @@ gem 'thin'
 gem 'cancan'
 
 # Use rspec as the testing framework
-gem 'rspec-rails', group: [:development, :test]
+group :test, :development do
+  gem 'rspec-rails' # Rspec BDD
+  gem 'database_cleaner' # Cleans database after each test unit
+  gem 'guard-rspec' # Run tests automatically after touching a file under it's suite
+  gem 'capybara' # 3rd Party testing framework
+  gem 'selenium-webdriver' # Webdriver for capybara to test js functions
+end
 
 # Test environment setup
 group :test do
-  gem 'factory_girl_rails', '4.2.1'
-  gem 'capybara'
-  gem 'guard-rspec'
+  gem 'factory_girl_rails', '4.2.1' # Factories to replace fixtures, used in generating objects for testing
 end
 
 # Use pg as the database for Active Record

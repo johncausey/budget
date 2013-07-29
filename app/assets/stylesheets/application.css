@@ -14,6 +14,8 @@
  *= require foundation_and_overrides
  */
 
+.create-account-info-box { clear: both; padding: 20px; font-size: 12px; }
+
 .user-account-info { font-size: 14px; }
 .date-row h3 { margin: 0px; padding: 0px; }
 

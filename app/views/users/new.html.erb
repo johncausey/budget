@@ -19,7 +19,9 @@
   </div>
 
   <div class="large-6 columns">
-    <fieldset style="padding-top: 40px;">
+    <fieldset style="padding-top: 20px;">
+      <h4>Get started today! <small>Escape the month-to-month</small></h4>
+      <hr />
       <%= form_for @user do |f| %>
         <% if @user.errors.any? %>
           <div class="small-10 columns">
@@ -60,6 +62,14 @@
           <%= f.submit "Create my new account", :class => "button right" %>
         </div>
       <% end %>
+      <div class="create-account-info-box">
+        <p>
+          By creating an account you agree to the <%= link_to "rainybudget.com terms of use", legal_path %>.
+        </p>
+        <p>
+          rainybudget.com is not a replacement for any professional, legal, or accounting services. Information provided by the rainybudget.com services are directly affected by variable input and are not guaranteed to be accurate.
+        </p>
+      </div>
     </fieldset>
   </div>
 </div>
