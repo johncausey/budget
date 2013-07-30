@@ -1,24 +1,26 @@
 <html>
-  <div class="container" style="background-color: #F7F7F7; width: 80%; margin: 0 auto; padding: 50px 40px 50px 40px; height: 100%;">
-    <p>
-      <br />
-      <img src="http://localhost:3000/assets/rainybudgetlogo.png" style="float: right;">
-      <br />
-    </p>
-    <p>
-      There is a new customer message from rainybudget.com.
-    </p>
-    <p>
-      Name: <%= @message.name %>
-    </p>
-    <p>
-      Email: <%= @message.email %>
-    </p>
-    <p>
-      Message:
-    </p>
-    <p>
-      <%= @message.body %>
-    </p>
-  </div>
+  <body style="background-color:#0097d6;">
+    <div class="container" style="background-color: #F7F7F7; width: 80%; margin: 0 auto; padding: 50px 40px 50px 40px; height: 100%;">
+      <p>
+        <br />
+        <img src="http://localhost:3000/assets/rainybudgetlogo.png" style="float: right;">
+        <br />
+      </p>
+      <p>
+        There is a new customer message from rainybudget.com.
+      </p>
+      <p>
+        <strong>Name:</strong> <%= @message.name %>
+      </p>
+      <p>
+        <strong>Email:</strong> <%= @message.email %>
+      </p>
+      <p>
+        <strong>Message:</strong>
+      </p>
+      <p>
+        <%= @message.body %>
+      </p>
+    </div>
+  </body>
 </html>

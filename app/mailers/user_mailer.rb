@@ -14,12 +14,12 @@ class UserMailer < ActionMailer::Base
 
   def new_user_notify_admin(user)
     @user = user
-    mail :to => "support@rainybudget.com", :subject => "New user signup at rainybudget.com"
+    mail :to => "support@rainybudget.com", :subject => "New user signup at rainybudget.com - #{Time.now.strftime("%b %d, %Y")}"
   end
 
   def password_reset(user)
     @user = user
-    mail :to => user.email, :subject => "Password Reset Instructions - rainybudget.com"
+    mail :to => user.email, :subject => "Password Reset Instructions - rainybudget.com - #{Time.now.strftime("%b %d, %Y")}"
   end
   
 end
