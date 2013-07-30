@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def new
-    @user = User.new
+    if current_user
+      redirect_to current_month_path, :flash => { :alert => "You are already logged into an account." }
+    else
+      @user = User.new
+    end
   end
   
   def create
@@ -35,7 +39,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name)
+      params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :time_zone)
     end
   
 end

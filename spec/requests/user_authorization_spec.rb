@@ -38,7 +38,7 @@ describe "User authorization" do
     within(".new_expense") do
       fill_in("Expense Name", :with => "New expense in test suite")
       fill_in("Dollar Amount", :with => "$344.80")
-      fill_in("expense[date_added]", :with => Date.today)
+      fill_in("expense[date_added]", :with => Time.zone.now.to_date)
       click_button "Add this Expense"
     end
     page.should have_content("New expense added!")
@@ -53,7 +53,7 @@ describe "User authorization" do
     within(".new_income") do
       fill_in("Income Source", :with => "New income in test suite")
       fill_in("Dollar Amount", :with => "$344.80")
-      fill_in("income[date_added]", :with => Date.today)
+      fill_in("income[date_added]", :with => Time.zone.now.to_date)
       click_button "Add this Income"
     end
     page.should have_content("New income added!")
@@ -69,13 +69,13 @@ describe "User authorization" do
       fill_in("saving[amount]", :with => "$500.00")
       click_button "Set Goal"
     end
-    page.should have_content("Updated your saving goal for #{Date.today.strftime("%B")}")
+    page.should have_content("Updated your saving goal for #{Time.zone.now.strftime("%B")}")
     current_path.should eq(savings_path)
     within(".new_saving") do
       fill_in("saving[amount]", :with => "$250.00")
       click_button "Set Goal"
     end
-    page.should have_content("Updated your saving goal for #{Date.today.strftime("%B")}")
+    page.should have_content("Updated your saving goal for #{Time.zone.now.strftime("%B")}")
     current_path.should eq(savings_path)
   end
 

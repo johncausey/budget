@@ -10,11 +10,7 @@ module ApplicationHelper
 
   def saving
     cs = current_user.savings.where("saving_month BETWEEN ? AND ?", Time.zone.now.beginning_of_month, Time.zone.now.end_of_month)
-    if cs.exists?
-      cs.first.amount
-    else
-      cs.first
-    end
+    cs.exists? ? cs.first.amount : cs.first
   end
 
   def money_used

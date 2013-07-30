@@ -9,7 +9,7 @@ class MessageMailer < ActionMailer::Base
 
   def send_customer_message(message)
     @message = message
-    mail :to => "support@rainybudget.com", :subject => "New Message from rainybudget.com - #{Time.now.strftime("%b %d, %Y")}"
+    mail :to => "support@rainybudget.com", :subject => "New Message from rainybudget.com - #{Time.zone.now.strftime("%b %d, %Y")}"
   end
 
 end

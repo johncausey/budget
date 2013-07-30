@@ -57,6 +57,15 @@
           </div>
         </div>
 
+        <div class="small-10 columns">
+          <div class="small-5 columns">
+            <%= f.label :time_zone, "Select Time Zone", :class => "right inline" %>
+          </div>
+          <div class="small-7 columns">
+            <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
+          </div>
+        </div>
+
         <div class="small-12 left columns">
           <br />
           <%= f.submit "Create my new account", :class => "button right" %>

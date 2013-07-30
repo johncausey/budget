@@ -13,7 +13,7 @@ class Saving < ActiveRecord::Base
   end
 
   def set_saving_month
-    self.saving_month = Date.today
+    self.saving_month = Time.zone.now
   end
 
   def only_allow_one_per_month
