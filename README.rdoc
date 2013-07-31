@@ -2,8 +2,5 @@
 
 The easiest budget software around.
 
-- Fix abilities.
-- Add about copy.
-- Make sure to change picture location in send emails (for production src).
 
 - Consider text ability to add expenses.
