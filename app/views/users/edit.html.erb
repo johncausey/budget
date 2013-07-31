@@ -24,45 +24,49 @@
       <li class="active"><%= link_to "Account Information", account_information_path %></li>
     </ul>
   </div>
+
+
   <div class="large-9 columns">
     <div class="row">
-      <div class="large-6 columns">
-        <div class="large-12 columns">
-          <h4>Account Information</h4>
-          <%= form_for @user do |f| %>
-            <%= f.label :first_name, "First Name" %>
-            <%= f.text_field :first_name %><br />
-
-            <%= f.label :last_name, "Last Name" %>
-            <%= f.text_field :last_name %><br />
-
-            <%= f.label :time_zone, "Select Time Zone" %>
-            <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %><br />
-
-            <p class="user-account-info" style="padding-top: 30px;">
-              Join Date: <%= current_user.created_at.strftime("%B %d, %Y") %>
-              <br />
-              <% if current_user.original_supporter? %> 
-                Account Status: Original Supporter
-              <% else %>
-                Account Status: Regular Member
-              <% end %>
-            </p>
-            <br />
-            <%= f.submit "Update Account Information", :class => "small button right" %>
-          <% end %>
-        </div>
+      <div class="large-12 columns">
+        <h4>Account Information</h4>
+        <hr />
       </div>
-      <div class="large-6 columns">
-        <p>
-          Here you can update a little more about yourself. Currently all of this is just to make the experience better- you can even leave it blank if you'd like.
-        </p>
-        <p>
-          We appreciate your support and hope you find this software useful. Feel free to <%= link_to "contact us", contact_us_path %> if you have any suggestions, questions, concerns, or would simply like to say hi.
-        </p>
-        <p>
-          Thank you!
-        </p>
+      <div class="row">
+        <div class="large-6 columns">
+          <div class="large-12 columns">
+            <%= form_for @user do |f| %>
+              <%= f.label :first_name, "First Name" %>
+              <%= f.text_field :first_name %><br />
+
+              <%= f.label :last_name, "Last Name" %>
+              <%= f.text_field :last_name %><br />
+
+              <%= f.label :time_zone, "Select Time Zone" %>
+              <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %><br />
+
+              <p class="user-account-info" style="padding-top: 30px;">
+                Join Date: <%= current_user.created_at.strftime("%B %d, %Y") %>
+                <br />
+                <% if current_user.original_supporter? %> 
+                  Account Status: Original Supporter
+                <% else %>
+                  Account Status: Regular Member
+                <% end %>
+              </p>
+              <br />
+              <%= f.submit "Save Account Information", :class => "button right" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="large-6 columns">
+          <p>
+            We appreciate your support and hope you find this software useful. Feel free to <%= link_to "contact us", contact_us_path %> if you have any suggestions, questions, concerns, or would simply like to say hi.
+          </p>
+          <p>
+            Thank you!
+          </p>
+        </div>
       </div>
     </div>
   </div>

@@ -35,23 +35,25 @@
   </div>
   <div class="large-9 columns">
     <div class="row">
-      <div class="large-8 columns">
-        <h4>Expenses for <%= this_month %></h4>
+      <div class="large-12 columns">
         <fieldset>
-          <%= form_for([@user, @user.expenses.build]) do |f| %>
+          <div class="large-8 columns">
+          <h4>Money Spent. <small>Add an expense for <%= this_month %>.</small></h4>
+          <hr />
+          <%= form_for([@user, @user.expenses.build], :html => { :style => 'margin-bottom: 0px;' }) do |f| %>
             <div class="row">
-              <div class="small-10 columns">
-                <div class="small-6 columns">
+              <div class="small-12 columns">
+                <div class="small-4 columns">
                   <%= f.label :name, "Expense Name", :class => "right inline" %>
                 </div>
-                <div class="small-6 columns left">
+                <div class="small-8 columns left">
                   <%= f.text_field :name, :placeholder => "Coffee" %>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="small-10 columns">
-                <div class="small-6 columns">
+              <div class="small-12 columns">
+                <div class="small-4 columns">
                   <%= f.label :amount, "Dollar Amount", :class => "right inline" %>
                 </div>
                 <div class="small-4 columns left">
@@ -61,27 +63,30 @@
             </div>
 
             <div class="row">
-              <div class="small-10 columns">
-                <div class="small-6 columns">
-                  <label class="right inline">Fixed / Fluid</label>
-                </div>
-                <div class="small-6 columns">
-                  <%= f.radio_button :fixed, false, :class => "inline" %>
-                  <%= f.label :fixed, "Fluid Expense", :value => false, :style => "display:inline !important" %>
-                  <br />
-                  <%= f.radio_button :fixed, true, :class => "inline" %>
-                  <%= f.label :fixed, "Fixed Expense", :value => true, :style => "display:inline !important" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="small-10 columns">
-                <div class="small-6 columns">
+              <div class="small-12 columns">
+                <div class="small-4 columns">
                   <%= f.label :date_added, "Date Spent", :class => "right inline" %>
                 </div>
-                <div class="small-5 columns left">
-                  <%= f.text_field :date_added, :id => "datepicker" %>
+                <div class="small-4 columns left">
+                  <%= f.text_field :date_added, :placeholder => "yyyy-mm-dd", :id => "datepicker" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="small-12 columns">
+                <div class="small-4 columns">
+                  <label class="right inline">Fixed / Fluid</label>
+                </div>
+                <div class="small-8 columns">
+                  <div>
+                    <%= f.radio_button :fixed, false, :class => "inline" %>
+                    <%= f.label :fixed, "Fluid Expense", :value => false, :style => "display:inline !important;" %>
+                  </div>
+                  <div style="padding-top: 5px;">
+                    <%= f.radio_button :fixed, true, :class => "inline" %>
+                    <%= f.label :fixed, "Fixed Expense", :value => true, :style => "display:inline !important;" %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -89,26 +94,26 @@
             <div class="row">
               <br />
               <br />
-              <div class="small-11 left columns">
-                <%= f.submit "Add this Expense", :class => "small button right" %>
+              <div class="small-12 columns">
+                <div class="small-12 columns">
+                  <%= f.submit "Add this Expense", :class => "button right" %>
+                </div>
               </div>
             </div>
           <% end %>
+          </div>
+          <div class="large-4 columns">
+            <h5>What's an expense?</h5>
+            <p>
+              A <strong><em>fixed</em></strong> expense is anything that you pay each month, this includes rent, car payments, phone bill, and others. Even if the price changes, it's still a fixed expense if you pay it each month.
+            </p>
+            <p>
+              A <strong><em>fluid</em></strong> expense is everything else- coffee, food, registrations, clothing, etc. Keeping fluid expenses low helps you save more each month.
+            </p> 
+          </div>
         </fieldset>
       </div>
-
-      <div class="large-4 columns">
-        <h5>What's an expense?</h5>
-        <p>
-          A <strong><em>fixed</em></strong> expense is anything that you pay each month, this includes rent, car payments, phone bill, and others. Even if the price changes, it's still a fixed expense if you pay it each month.
-        </p>
-        <p>
-          A <strong><em>fluid</em></strong> expense is everything else- coffee, food, registrations, clothing, etc. Keeping fluid expenses low helps you save more each month.
-        </p> 
-      </div>
     </div>
-
-
 
     <div class="row">
       <div class="large-12 columns">

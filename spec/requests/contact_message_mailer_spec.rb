@@ -14,7 +14,7 @@ describe "Contact Message Mailer" do
     within(".new_message") do
       fill_in("Full Name", :with => @full_name)
       fill_in("Email Address", :with => @email_address)
-      fill_in("Message Content", :with => @email_body)
+      fill_in("Content for your message", :with => @email_body)
       click_button "Contact us!"
     end
     page.should have_content("Thank you! We will respond as soon as we can through email.")
@@ -35,7 +35,7 @@ describe "Contact Message Mailer" do
     within(".new_message") do
       fill_in("Full Name", :with => @full_name)
       fill_in("Email Address", :with => @email_address)
-      fill_in("Message Content", :with => @email_body)
+      fill_in("Content for your message", :with => @email_body)
       click_button "Contact us!"
     end
     page.should have_content("Thank you! We will respond as soon as we can through email.")

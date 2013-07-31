@@ -1,5 +1,6 @@
 <div class="row">
-  <div class="large-6 columns">
+  <div class="large-5 columns">
+    <br />
     <h2>Welcome!</h2>
     <p>
       Creating an account is free, and right now during the beta, a new account means lifetime original supporter status! This gives you priority over other users and special privledges later in the life of rainybudget.com.
@@ -18,57 +19,59 @@
     </p>
   </div>
 
-  <div class="large-6 columns">
+  <div class="large-7 columns">
     <fieldset style="padding-top: 20px;">
       <h4>Get started today! <small>Escape the month-to-month</small></h4>
       <hr />
       <%= form_for @user do |f| %>
         <% if @user.errors.any? %>
-          <div class="small-10 columns">
+          <div class="small-12 columns">
             <label class="error">Your account could not be created!<br /><br /> Please make sure you're using a valid email address and your passwords match.</label>
             <hr />
           </div>
         <% end %>
 
-        <div class="small-10 columns">
-          <div class="small-5 columns">
+        <div class="small-12 columns">
+          <div class="small-4 columns">
             <%= f.label :email, "Email Address", :class => "right inline" %>
           </div>
-          <div class="small-7 columns">
-            <%= f.text_field :email %>
+          <div class="small-8 columns">
+            <%= f.text_field :email, :placeholder => "katie.bell@gmail.com" %>
           </div>
         </div>
 
-        <div class="small-10 columns">
-          <div class="small-5 columns">
+        <div class="small-12 columns">
+          <div class="small-4 columns">
             <%= f.label :password, "Password", :class => "right inline" %>
           </div>
-          <div class="small-7 columns">
+          <div class="small-8 columns">
             <%= f.password_field :password %>
           </div>
         </div>
 
-        <div class="small-10 columns">
-          <div class="small-5 columns">
+        <div class="small-12 columns">
+          <div class="small-4 columns">
             <%= f.label :password_confirmation, "Confirm Password", :class => "right inline" %>
           </div>
-          <div class="small-7 columns">
+          <div class="small-8 columns">
             <%= f.password_field :password_confirmation %>
           </div>
         </div>
 
-        <div class="small-10 columns">
-          <div class="small-5 columns">
+        <div class="small-12 columns">
+          <div class="small-4 columns">
             <%= f.label :time_zone, "Select Time Zone", :class => "right inline" %>
           </div>
-          <div class="small-7 columns">
+          <div class="small-8 columns">
             <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
           </div>
         </div>
 
-        <div class="small-12 left columns">
-          <br />
-          <%= f.submit "Create my new account", :class => "button right" %>
+        <div class="small-12 columns">
+          <div class="small-12 columns">
+            <br />
+            <%= f.submit "Create my new account", :disable_with => "Creating your account...", :class => "button right" %>
+          </div>
         </div>
       <% end %>
       <div class="create-account-info-box">

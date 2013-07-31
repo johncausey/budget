@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: budget_development
+  pool: 5
+  timeout: 5000
+  username: john
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: budget_test
+  pool: 5
+  timeout: 5000
+  username: john
+  password:

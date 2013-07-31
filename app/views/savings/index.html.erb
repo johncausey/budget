@@ -27,19 +27,22 @@
   <div class="large-9 columns">
     <div class="row">
       <div class="large-12 columns">
-        <h4>Save money to escape the month-to-month.</h4>
         <fieldset>
           <%= form_for([@user, @user.savings.build]) do |f| %>
             <div class="row">
+              <div class="large-12 columns">
+                <h4>Saving money. <small>Save money to pay off debt, build an emergency account, and invest for the future.</small></h4>
+                <hr />
+              </div>
               <div class="large-6 columns">
                 <p>
-                  Saving money each month not only helps you build emergency funds for those unexpected situations, it also opens up money you can use to invest, purchase, and pay off debt.
+                  Saving money each month not only helps you build emergency cash for those unexpected situations, it also opens up money you can use to invest, purchase, and pay off debt.
                 </p>
                 <p>
                   Save as much as you can each month for the fastest progress.
                 </p>
               </div>
-              <div class="large-5 columns">
+              <div class="large-6 columns">
                 <div class="row collapse">
                   <% if @this_months_savings_goal %>
                     <p>

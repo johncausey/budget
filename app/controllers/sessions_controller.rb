@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   
   def new
+    if current_user
+      redirect_to current_month_path, :flash => { :alert => "You are already logged into an account." }
+    end
   end
 
   def create

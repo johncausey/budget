@@ -1,3 +1,16 @@
+//
+//
+// THIS VERSION MODIFIED FROM ORIGINAL MORRIS.JS
+//
+// Modified by John Causey on 31/07/2013
+// This version only accepts currencies in
+// ydata for proper formatting and will not
+// accept non-string number data.
+//
+//
+
+
+
 (function() {
   var $, Morris, minutesSpecHelper, secondsSpecHelper,
     __slice = [].slice,
@@ -124,8 +137,8 @@
       grid: true,
       gridLineColor: '#aaa',
       gridStrokeWidth: 0.5,
-      gridTextColor: '#888',
-      gridTextSize: 12,
+      gridTextColor: '#333',
+      gridTextSize: 14,
       gridTextFamily: 'sans-serif',
       gridTextWeight: 'normal',
       hideHover: false,
@@ -135,7 +148,7 @@
       padding: 25,
       parseTime: true,
       postUnits: '',
-      preUnits: '',
+      preUnits: '$',
       ymax: 'auto',
       ymin: 'auto 0',
       goals: [],
@@ -434,7 +447,7 @@
       if (typeof this.options.yLabelFormat === 'function') {
         return this.options.yLabelFormat(label);
       } else {
-        return "" + this.options.preUnits + (Morris.commas(label)) + this.options.postUnits;
+        return "" + this.options.preUnits + parseFloat((Morris.commas(label))).toFixed(2) + this.options.postUnits;
       }
     };
 

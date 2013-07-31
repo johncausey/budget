@@ -4,31 +4,33 @@
     <h6 class="text-center">Login to your account here.</h6>
     <fieldset>
       <div class="login-box">
-      <%= form_tag sessions_path do %>
-        <div class="small-10 columns">
-          <div class="small-5 columns">
-            <%= label_tag :email, "Email Address", :class => "right inline" %>
+        <%= form_tag sessions_path do %>
+          <div class="small-12 columns">
+            <div class="small-4 columns">
+              <%= label_tag :email, "Email Address", :class => "right inline" %>
+            </div>
+            <div class="small-8 columns">
+              <%= text_field_tag :email, params[:email], :placeholder => "katie.bell@gmail.com" %>
+            </div>
           </div>
-          <div class="small-7 columns">
-            <%= text_field_tag :email, params[:email] %>
-          </div>
-        </div>
 
-        <div class="small-10 columns">
-          <div class="small-5 columns">
-            <%= label_tag :password, "Password", :class => "right inline" %>
+          <div class="small-12 columns">
+            <div class="small-4 columns">
+              <%= label_tag :password, "Password", :class => "right inline" %>
+            </div>
+            <div class="small-8 columns">
+              <%= password_field_tag :password %>
+            </div>
           </div>
-          <div class="small-7 columns">
-            <%= password_field_tag :password %>
-          </div>
-        </div>
 
-        <div class="small-11 left columns">
-          <br />
-          <%= submit_tag "Access account", :class => "button right" %>
-        </div>
-      <% end %>
-    </div>
+          <div class="small-12 columns">
+            <div class="small-12 columns">
+              <br />
+              <%= submit_tag "Access account", :disable_with => "Logging in...", :class => "button right" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </fieldset>
   </div>
 </div>

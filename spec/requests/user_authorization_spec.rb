@@ -85,7 +85,7 @@ describe "User authorization" do
     within(".edit_user") do
       fill_in("user[first_name]", :with => "Kelsey")
       fill_in("user[last_name]", :with => "Ein")
-      click_button "Update Account Information"
+      click_button "Save Account Information"
     end
     page.should have_content("Logged in as Kelsey Ein")
     current_path.should eq(current_month_path)

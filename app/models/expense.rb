@@ -40,14 +40,14 @@ class Expense < ActiveRecord::Base
       0
     else
       daily_cost = saving.amount/days_in_month(Date.today.month)
-      daily_cost.round(2)
+      daily_cost
     end
   end
 
   def self.fixed_amount_daily(current_user_id, start)
     expenses = where(:user_id => current_user_id).where(date_added: start..Time.zone.now.end_of_month).where(:fixed => true).load.to_a.sum(&:amount)
     daily_cost = expenses/days_in_month(Date.today.month)
-    daily_cost.round(2)
+    daily_cost
   end
 
   def self.fluid_amounts_by_day(current_user_id, start)

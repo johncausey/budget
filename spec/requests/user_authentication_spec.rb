@@ -29,4 +29,18 @@ describe "User authentication" do
     current_path.should eq(current_month_path)
   end
 
+  it "will not allow a user to login while being logged in" do
+    @user = FactoryGirl.create(:user)
+    visit login_path
+    within(".login-box") do
+      fill_in("Email Address", :with => @user.email)
+      fill_in("Password", :with => @user.password)
+      click_button "Access account"
+    end
+    current_path.should eq(current_month_path)
+    visit login_path
+    page.should have_content("You are already logged into an account.")
+    current_path.should eq(current_month_path)
+  end
+
 end

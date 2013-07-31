@@ -4,6 +4,7 @@
 
 <div class="row">
   <div class="large-5 columns">
+    <br />
     <h3>Contact our support team</h3>
     <p>
       You may contact us using the form to the right. This is the place for any general contact, questions, and even support and account issues you may have.
@@ -19,44 +20,55 @@
     </p>
   </div>
 
-  <div class="large-7 columns">
-    <fieldset>
+  <div class="large-6 columns">
+    <fieldset style="padding-top: 20px;">
+      <h4>Send a message <small>Contact us anytime.</small></h4>
+      <hr />
       <%= form_for @message do |f| %>
+        
         <% if @message.errors.any? %>
-          <div class="small-10 columns">
+          <div class="small-12 columns">
             <label class="error">Your message could not be sent!<br /><br />Please be sure to add a valid email, your name, and your message.</label>
             <hr />
           </div>
         <% end %>
 
-        <div class="small-10 columns">
-          <div class="small-5 columns">
-            <%= f.label :name, "Full Name", :class => "right inline" %>
-          </div>
-          <div class="small-7 columns">
-            <%= f.text_field :name %>
-          </div>
-        </div>
-
-        <div class="small-10 columns">
-          <div class="small-5 columns">
-            <%= f.label :email, "Email Address", :class => "right inline" %>
-          </div>
-          <div class="small-7 columns">
-            <%= f.text_field :email %>
+        <div class="small-12 columns">
+          <div class="row collapse">
+            <div class="small-3 large-4 columns">
+              <span class="prefix"><%= f.label :name, "Full Name" %></span>
+            </div>
+            <div class="small-9 large-8 columns">
+              <%= f.text_field :name %>
+            </div>
           </div>
         </div>
 
-        <div class="small-10 columns">
-          <div class="small-5 columns">
-            <%= f.label :body, "Message Content", :class => "right inline" %>
-          </div>
-          <div class="small-7 columns">
-            <%= f.text_area :body, :style => "height: 150px" %>
+        <div class="small-12 columns">
+          <div class="row collapse">
+            <div class="small-3 large-4 columns">
+              <span class="prefix"><%= f.label :email, "Email Address" %></span>
+            </div>
+            <div class="small-9 large-8 columns">
+              <%= f.text_field :email %>
+            </div>
           </div>
         </div>
 
-        <div class="small-10 left columns">
+
+        <div class="small-12 columns">
+          <br />
+          <div class="row collapse">
+            <div class="large-12 columns">
+              <%= f.label :body, "Content for your message", :class => "inline" %>
+            </div>
+            <div class="large-12 columns">
+              <%= f.text_area :body, :style => "height: 150px" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="small-12 left columns">
           <br />
           <%= f.submit "Contact us!", :class => "button right" %>
         </div>
