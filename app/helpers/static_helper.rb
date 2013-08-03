@@ -5,7 +5,7 @@ module StaticHelper
     if saving
       p = percent(saving, incomes)
       if p < 100
-        "Savings goal of #{number_to_currency(saving)} (#{number_to_percentage(p, :precision => 2)} of income).".html_safe
+        "Savings goal of #{number_to_currency(saving)} (#{number_to_percentage(p, :precision => 2)} of income)".html_safe
       else p >= 100
         "You're saving more than you're making this month!"
       end
@@ -28,7 +28,7 @@ module StaticHelper
 
   # Generates the text showing the numbers on how much you spent on the current_month page.
   def amount_spent
-    "You have used <strong>#{number_to_currency(money_used)}</strong> out of <strong>#{number_to_currency(incomes)}</strong>.".html_safe
+    "You have used <strong>#{number_to_currency(money_used)}</strong> out of <strong>#{number_to_currency(incomes)}</strong>".html_safe
   end
 
 end

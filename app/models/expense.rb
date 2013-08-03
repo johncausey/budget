@@ -23,7 +23,7 @@ class Expense < ActiveRecord::Base
     #fixed_amounts = where(fixed: true).fixed_amounts_by_day(current_user_id, start)
     daily_fixed_amount = fixed_amount_daily(current_user_id, start)
     daily_saving_amount = saved_amount_daily(current_user_id, start)
-    (start.to_date..Time.zone.now.end_of_month).map do |date|
+    (start.to_date..Time.zone.now.end_of_month.to_date).map do |date|
       {
         date_added: date,
         fluid_amount: fluid_amounts[date] || 0,
@@ -39,7 +39,7 @@ class Expense < ActiveRecord::Base
     if saving == nil
       0
     else
-      daily_cost = saving.amount/days_in_month(Date.today.month)
+      daily_cost = saving.amount/days_in_month(Time.zone.now.month)
       daily_cost
     end
   end
