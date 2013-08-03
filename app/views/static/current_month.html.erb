@@ -50,10 +50,6 @@
       <div class="large-12 columns">
         <p><%= amount_spent %><span class="right"><%= saved_goal_this_month %></span></p>
         <%= main_total_bar %>
-        <hr />
-        <br />
-        <br />
-        <h4 class="text-center">Spending overview for <%= this_month %></h4>
         <%= content_tag :div, "", id: "monthly-expenses-chart", data: {expenses: Expense.chart_data(current_user)} %>
       </div>
 
