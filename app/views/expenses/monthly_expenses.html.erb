@@ -27,8 +27,8 @@
     <ul class="side-nav">
       <li><%= link_to "#{this_month} Overview", current_month_path %></li>
       <li><%= link_to "Savings", savings_path %></li>
-      <li class="active"><%= link_to "Regular Spending Expenses", regular_spending_path %></li>
-      <li><%= link_to "Monthly Expenses", monthly_expenses_path %></li>
+      <li><%= link_to "Regular Spending Expenses", regular_spending_path %></li>
+      <li class="active"><%= link_to "Monthly Expenses", monthly_expenses_path %></li>
       <li><%= link_to "Income", incomes_path %></li>
       <li class="divider"></li>
       <li><%= link_to "Account Information", account_information_path %></li>
@@ -40,8 +40,8 @@
         <table style="width: 100%">
           <thead>
             <tr>
-              <th class="fluid-font">Regular Spending Expenses for <%= this_month %></th>
-              <th class="fluid-font">Expense Information</th>
+              <th class="fixed-font">Monthly Expenses for <%= this_month %></th>
+              <th class="fixed-font">Expense Information</th>
             </tr>
           </thead>
           <tbody>
@@ -54,7 +54,7 @@
                         <%= f.text_field :amount, :placeholder => "$37.50" %>
                       </div>
                       <div class="large-10 columns">
-                        <%= f.text_field :name, :placeholder => "Name of Regular Spending Expense" %>
+                        <%= f.text_field :name, :placeholder => "Name of Monthly Expense" %>
                       </div>
                     </div>
                   </div>
@@ -64,34 +64,31 @@
                     <div class="large-12 columns">
                       <div class="large-5 columns">
                         <%= f.text_field :date_added, :placeholder => "yyyy-mm-dd", :id => "datepicker" %>
+                        <%= f.hidden_field :fixed, :value => true %>
                       </div>
                       <div class="large-7 columns">
-                        <%= f.submit "Add Expense", :class => "button small right alert" %>
+                        <%= f.submit "Add Expense", :class => "button small right" %>
                       </div>
                     </div>
                   </div>
                 </td>
               </tr>
             <% end %>
-            <% if @fluid_expenses.exists? %>
-              <% @fluid_expenses.each do |expense| %>
+            <% if @fixed_expenses.exists? %>
+              <% @fixed_expenses.each do |expense| %>
                 <tr>
                   <td style="width: 65%">
                     <%= number_to_currency(expense.amount) %> &nbsp;
                     <%= expense.name %>
                   </td>
-                  <td>
-                    <%= expense.date_added.strftime("%A, %B %d") %>
-                    <span class="red-remove-link">
-                      <%= link_to 'remove', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" }, :class => "right" %>
-                    </span>
-                  </td>
+                  <td><%= expense.date_added.strftime("%A, %B %d") %>
+                  <%= link_to 'remove', expense, method: :delete, data: { confirm: "Are you sure you want to remove this expense?" }, :class => "right" %></td>
                 </tr>
               <% end %>
             <% else %>
               <tr>
                 <td style="width: 65%">
-                  <h5>Add your first expense for <%= this_month %> above.</h5>
+                  <h5>Add your first monthly expense for <%= this_month %> above.</h5>
                 </td>
                 <td>
                   
@@ -103,7 +100,7 @@
         <div class="row collapse">
           <div class="large-12 columns">
             <p>
-              <em>Regular Spending Expenses</em> are anything that you purchase during the month; such as coffee, dinner, oil changes, or groceries. These expenses regularly change from month to month.
+              <em>Monthly Expenses</em> can be copied over from the previous month, and then edited to correct for slight price calculation. These are anything that you pay each month of the year.
             </p>
           </div>
         </div>

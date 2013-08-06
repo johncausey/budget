@@ -19,14 +19,20 @@
             <a href="#" data-dropdown="drop1">Access my Account</a>
             <div id="drop1" class="f-dropdown content small" data-dropdown-form>
               <%= form_tag sessions_path do %>
-                <%= label_tag :email, "Email Address" %>
-                <%= text_field_tag :email, params[:email], :placeholder => "katie.bell@gmail.com" %>
-                <%= label_tag :password, "Password" %>
-                <%= password_field_tag :password %>
-                <p><%= check_box_tag :remember_me, 1, params[:remember_me], :style => "display:inline !important" %>
-                <%= label_tag :remember_me, "Remember Me", :style => "display:inline !important" %>
-                <br />
-                <span class="forgot-remember"><%= link_to "Password Recovery", new_password_reset_path %></span></p>
+                <p>
+                  <%= label_tag :email, "Email Address" %>
+                  <%= text_field_tag :email, params[:email], :placeholder => "katie.bell@gmail.com" %>
+                </p>
+                <p>
+                  <%= label_tag :password, "Password" %>
+                  <%= password_field_tag :password %>
+                </p>
+                <p>
+                  <%= check_box_tag :remember_me, 1, params[:remember_me], :style => "display:inline !important" %>
+                  <%= label_tag :remember_me, "Remember Me", :style => "display:inline !important" %>
+                  <br />
+                  <span class="forgot-remember"><%= link_to "Password Recovery", new_password_reset_path %></span>
+                </p>
                 <%= submit_tag "Sign In", :disable_with => "Logging in...", :class => "button right" %>
               <% end %>
             </div>

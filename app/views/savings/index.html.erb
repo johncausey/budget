@@ -17,7 +17,8 @@
     <ul class="side-nav">
       <li><%= link_to "#{this_month} Overview", current_month_path %></li>
       <li class="active"><%= link_to "Savings", savings_path %></li>
-      <li><%= link_to "Expenses", expenses_path %></li>
+      <li><%= link_to "Regular Spending Expenses", regular_spending_path %></li>
+      <li><%= link_to "Monthly Expenses", monthly_expenses_path %></li>
       <li><%= link_to "Income", incomes_path %></li>
       <li class="divider"></li>
       <li><%= link_to "Account Information", account_information_path %></li>
@@ -44,7 +45,7 @@
               <div class="large-6 columns">
                 <div class="row collapse">
                   <% if @this_months_savings_goal %>
-                    <p>
+                    <p class="saving-font">
                       Your <%= this_month %> goal is <strong><%= number_to_currency(@this_months_savings_goal.amount) %></strong>
                     </p>
                     <p>
