@@ -1,5 +1,7 @@
 class Expense < ActiveRecord::Base
 
+  # Currently splitting the views for this, split branch only.
+
   belongs_to :user
 
   validates_format_of :amount, :with => /\A[$]?[0-9]*,?[0-9]+.?[0-9]{0,2}\z/
