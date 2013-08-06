@@ -7,6 +7,7 @@ class Ability
     can :create, Message
     if user
       can [:create, :index], [Expense, Income, Saving]
+      can :monthly_expenses, Expense
       can :destroy, [Expense, Income], :user_id => user.id
       can [:logout, :update], User, :id => user.id
     end

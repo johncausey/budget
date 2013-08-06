@@ -4,6 +4,9 @@ Budget::Application.routes.draw do
   get 'about', to: 'static#about', as: 'about'
   get 'legal', to: 'static#legal', as: 'legal'
 
+  get 'monthly_expenses', to: 'expenses#monthly_expenses', as: 'monthly_expenses'
+  get 'regular_spending', to: 'expenses#index', as: 'regular_spending'
+
 
   get 'current_month', to: 'static#current_month', as: 'current_month'
   get 'signup', to: 'users#new', as: 'signup'

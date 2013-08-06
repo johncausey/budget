@@ -14,7 +14,7 @@
  *= require foundation_and_overrides
  */
 
-
+input[type="text"] { margin: 0px; }
 
 select { padding: 5px 2px; }
 
@@ -43,6 +43,15 @@ a:hover { border-bottom: 1px solid; }
 .fixed-font { color: #3D92DB; }
 .fluid-font { color: #DC143C; }
 .saving-font { color: #228B22; }
+
+.red-remove-link a {
+  color: #DC143C;
+  text-decoration: none;
+}.red-remove-link a:hover {
+  color: #DC143C;
+  border-bottom: 1px solid;
+  text-decoration: none;
+}
 
 .custom-expense-lineheight { line-height: 150%; }
 

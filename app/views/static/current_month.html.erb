@@ -8,7 +8,7 @@
       xLabelFormat: function(date) {
           return date.getMonth()+1+'/'+date.getDate()+'/'+date.getFullYear(); 
           },
-      labels: ['Fluid Spending', 'Average Saving Cost', 'Average Fixed Cost'],
+      labels: ['Regular Spending', 'Saved Amount', 'Monthly Expenses'],
       pointSize: 2,
       fillOpacity: 0.1,
       dateFormat: function(date_added) {
@@ -39,7 +39,8 @@
     <ul class="side-nav">
       <li class="active"><%= link_to "#{this_month} Overview", current_month_path %></li>
       <li><%= link_to "Savings", savings_path %></li>
-      <li><%= link_to "Expenses", expenses_path %></li>
+      <li><%= link_to "Regular Spending Expenses", regular_spending_path %></li>
+      <li><%= link_to "Monthly Expenses", monthly_expenses_path %></li>
       <li><%= link_to "Income", incomes_path %></li>
       <li class="divider"></li>
       <li><%= link_to "Account Information", account_information_path %></li>
