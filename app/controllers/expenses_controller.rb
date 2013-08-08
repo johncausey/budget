@@ -35,7 +35,7 @@ class ExpensesController < ApplicationController
   def destroy
     @expense = Expense.find(params[:id])
     @expense.destroy
-    redirect_to expenses_path, notice: "This expense has been removed."
+    redirect_to :back, notice: "This expense has been removed."
   end
 
   private

@@ -10,7 +10,9 @@
           },
       labels: ['Regular Spending', 'Saved Amount', 'Monthly Expenses'],
       pointSize: 2,
-      fillOpacity: 0.1,
+      hideHover: true,
+      smooth: false,
+      fillOpacity: 0.4,
       dateFormat: function(date_added) {
           d = new Date(date_added);
           var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -37,11 +39,11 @@
 <div class="row">
   <div class="large-3 columns">
     <ul class="side-nav">
-      <li class="active"><%= link_to "#{this_month} Overview", current_month_path %></li>
-      <li><%= link_to "Savings", savings_path %></li>
-      <li><%= link_to "Regular Spending Expenses", regular_spending_path %></li>
-      <li><%= link_to "Monthly Expenses", monthly_expenses_path %></li>
-      <li><%= link_to "Income", incomes_path %></li>
+      <li class="active"><%= link_to "<i class='foundicon-graph'></i> #{this_month} Overview".html_safe, current_month_path %></li>
+      <li><%= link_to "<i class='foundicon-checkmark success-icon'></i> Savings".html_safe, savings_path %></li>
+      <li><%= link_to "<i class='foundicon-minus alert-icon'></i> Regular Spending Expenses".html_safe, regular_spending_path %></li>
+      <li><%= link_to "<i class='foundicon-calendar primary-icon'></i> Monthly Expenses".html_safe, monthly_expenses_path %></li>
+      <li><%= link_to "<i class='foundicon-plus secondary-icon'></i> Income".html_safe, incomes_path %></li>
       <li class="divider"></li>
       <li><%= link_to "Account Information", account_information_path %></li>
     </ul>

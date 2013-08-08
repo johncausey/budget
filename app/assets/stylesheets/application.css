@@ -14,9 +14,17 @@
  *= require foundation_and_overrides
  */
 
+.primary-icon { color: #3D92DB !important; }
+.alert-icon { color: #DC143C !important; }
+.success-icon { color: #228B22 !important; }
+.secondary-icon { color: #CCCCCC !important; }
+
+
 input[type="text"] { margin: 0px; }
 
 select { padding: 5px 2px; }
+
+.income-box { border: 1px solid #CCC; padding: 10px; }
 
 .create-account-info-box { clear: both; padding: 20px; font-size: 12px; }
 
@@ -81,9 +89,6 @@ a:hover { border-bottom: 1px solid; }
 .header-span {
   margin-bottom: 20px;
   color: #333;
-  /*background-color: #FAFAFA;*/
-  /*background-color: #E6EFFA;*/
-  /*border-bottom: 1px solid #0097d6;*/
   border-bottom: 1px solid #CCCCCC;
   -webkit-box-shadow: 0px 0px 8px 2px #CCCCCC;
        -moz-box-shadow: 0px 0px 8px 2px #CCCCCC;
@@ -93,4 +98,33 @@ a:hover { border-bottom: 1px solid; }
 
 .morris-hover{position:absolute;z-index:1000;}.morris-hover.morris-default-style{border-radius:10px;padding:6px;color:#666;background:rgba(255, 255, 255, 0.8);border:solid 2px rgba(230, 230, 230, 0.8);font-family:sans-serif;font-size:12px;text-align:center;}.morris-hover.morris-default-style .morris-hover-row-label{font-weight:bold;margin:0.25em 0;}
 .morris-hover.morris-default-style .morris-hover-point{white-space:nowrap;margin:0.1em 0;}
+
+@font-face {
+  font-family: 'GeneralFoundicons';
+  src: url('general_foundicons.eot');
+  src: url('general_foundicons.eot?#iefix') format('embedded-opentype'),
+       url('general_foundicons.woff') format('woff'),
+       url('general_foundicons.ttf') format('truetype'),
+       url('general_foundicons.svg#GeneralFoundicons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+ 
+[class*="foundicon-"] {
+  display: inline;
+  width: auto;
+  height: auto;
+  line-height: inherit;
+  vertical-align: baseline;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+}
+ 
+[class*="foundicon-"]:before {
+  font-family: "GeneralFoundicons";
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+}
 

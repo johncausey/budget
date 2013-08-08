@@ -18,7 +18,7 @@ module StaticHelper
   def main_total_bar
     p = percent(money_used, incomes)
     if p < 100
-      "<div class='progress secondary'><span class='meter' style='width: #{p}%'></span></div>".html_safe
+      "<div class='progress primary'><span class='meter' style='width: #{p}%'></span></div>".html_safe
     elsif p > 100
       "<div class='progress alert'><span class='meter' style='width: 100%'></span></div>".html_safe
     else

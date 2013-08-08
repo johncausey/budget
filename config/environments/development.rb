@@ -27,6 +27,9 @@ Budget::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  # config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+  config.assets.precompile += %w( .svg .eot .woff .ttf )
+
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.default_url_options = { :host => "www.rainybudget.com" }
