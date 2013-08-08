@@ -33,28 +33,43 @@ describe "User authorization" do
     current_path.should eq(account_information_path)
   end
 
-  it "can add and delete a new expense", :js => true do
+  it "can add and delete a new regular spending expense", :js => true do
     visit expenses_path
-    within(".new_expense") do
-      fill_in("Expense Name", :with => "New expense in test suite")
-      fill_in("Dollar Amount", :with => "$344.80")
+    within(".new-expense") do
+      fill_in("expense[name]", :with => "New expense in test suite")
+      fill_in("expense[amount]", :with => "$344.80")
       fill_in("expense[date_added]", :with => Time.zone.now.to_date)
-      click_button "Add this Expense"
+      click_button "Add Expense"
     end
-    page.should have_content("New expense added!")
+    page.should have_content("New expense has been added!")
     click_link "remove"
     page.driver.browser.switch_to.alert.accept
     page.should have_content("This expense has been removed.")
-    current_path.should eq(expenses_path)
+    current_path.should eq(regular_spending_path)
+  end
+
+  it "can add and delete a new monthly expense", :js => true do
+    visit monthly_expenses_path
+    within(".new-monthly-expense") do
+      fill_in("expense[name]", :with => "New monthly expense in test suite")
+      fill_in("expense[amount]", :with => "$540.22")
+      fill_in("expense[date_added]", :with => Time.zone.now.to_date)
+      click_button "Add Expense"
+    end
+    page.should have_content("New monthly expense has been added!")
+    click_link "remove"
+    page.driver.browser.switch_to.alert.accept
+    page.should have_content("This expense has been removed.")
+    current_path.should eq(monthly_expenses_path)
   end
 
   it "can add and delete a new income", :js => true do
     visit incomes_path
-    within(".new_income") do
-      fill_in("Income Source", :with => "New income in test suite")
-      fill_in("Dollar Amount", :with => "$344.80")
+    within(".new-income") do
+      fill_in("income[name]", :with => "New income in test suite")
+      fill_in("income[amount]", :with => "$344.80")
       fill_in("income[date_added]", :with => Time.zone.now.to_date)
-      click_button "Add this Income"
+      click_button "Add Income"
     end
     page.should have_content("New income added!")
     click_link "remove"

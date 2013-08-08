@@ -15,7 +15,7 @@ group :test, :development do
   gem 'database_cleaner' # Cleans database after each test unit
   gem 'guard-rspec' # Run tests automatically after touching a file under it's suite
   gem 'capybara' # 3rd Party testing framework
-  gem 'selenium-webdriver' # Webdriver for capybara to test js functions
+  gem 'selenium-webdriver', "~> 2.34.0" # Webdriver for capybara to test js functions, 2.34.0 is a fix for loading js in firefox for testing
 end
 
 # Test environment setup
