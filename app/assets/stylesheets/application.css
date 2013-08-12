@@ -15,10 +15,10 @@
  *= require foundation_and_overrides
  */
 
-.primary-icon { color: #3D92DB !important; }
+/*.primary-icon { color: #3D92DB !important; }
 .alert-icon { color: #DC143C !important; }
 .success-icon { color: #228B22 !important; }
-.secondary-icon { color: #CCCCCC !important; }
+.secondary-icon { color: #CCCCCC !important; }*/
 
 
 input[type="text"] { margin: 0px; }
