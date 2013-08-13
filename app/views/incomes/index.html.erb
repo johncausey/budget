@@ -27,11 +27,11 @@
 <div class="row">
   <div class="large-3 columns">
     <ul class="side-nav">
-      <li><%= link_to "<i class='foundicon-graph'></i> #{this_month} Overview".html_safe, current_month_path %></li>
-      <li><%= link_to "<i class='foundicon-checkmark success-icon'></i> Savings".html_safe, savings_path %></li>
-      <li><%= link_to "<i class='foundicon-minus alert-icon'></i> Regular Spending Expenses".html_safe, regular_spending_path %></li>
-      <li><%= link_to "<i class='foundicon-calendar primary-icon'></i> Monthly Expenses".html_safe, monthly_expenses_path %></li>
-      <li class="active"><%= link_to "<i class='foundicon-plus secondary-icon'></i> Income".html_safe, incomes_path %></li>
+      <li><%= link_to "<i class='foundicon-graph'></i>&nbsp; #{this_month} Overview".html_safe, current_month_path %></li>
+      <li><%= link_to "<i class='foundicon-checkmark success-icon'></i>&nbsp; Savings".html_safe, savings_path %></li>
+      <li><%= link_to "<i class='foundicon-page alert-icon'></i>&nbsp; Regular Spending".html_safe, regular_spending_path %></li>
+      <li><%= link_to "<i class='foundicon-page primary-icon'></i>&nbsp; Monthly Expenses".html_safe, monthly_expenses_path %></li>
+      <li class="active"><%= link_to "<i class='foundicon-page secondary-icon'></i>&nbsp; Income".html_safe, incomes_path %></li>
       <li class="divider"></li>
       <li><%= link_to "Account Information", account_information_path %></li>
     </ul>
@@ -39,11 +39,12 @@
   <div class="large-9 columns">
     <div class="row">
       <div class="large-12 columns">
+        <h4>Incoming Cash Sheet &nbsp;<small>Total Income for <%= this_month %></small></h4>
         <table style="width: 100%">
           <thead>
             <tr>
-              <th>Incoming Cash for <%= this_month %></th>
-              <th>Income Information</th>
+              <!-- <th>Incoming Cash for <%= this_month %></th> -->
+              <!-- <th>Income Information</th> -->
             </tr>
           </thead>
           <tbody>
@@ -79,8 +80,16 @@
               <% @incomes.each do |income| %>
                 <tr>
                   <td style="width: 65%">
-                    <%= number_to_currency(income.amount) %> &nbsp;
-                    <%= income.name %>
+                    <div class="row collapse">
+                      <div class="large-12 columns">
+                        <div class="large-2 columns">
+                          <%= number_to_currency(income.amount) %>
+                        </div>
+                        <div class="large-10 columns">
+                          <%= income.name %>
+                        </div>
+                      </div>
+                    </div>
                   </td>
                   <td><%= income.date_added.strftime("%A, %B %d") %>
                   <%= link_to 'remove', income, method: :delete, data: { confirm: "Are you sure you want to remove this income?" }, :class => "right" %></td>
