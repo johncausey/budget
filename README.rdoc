@@ -1,6 +1,26 @@
-== rainybudget.com
+== RainyBudget
 
-The easiest budget software around.
+Online budgeting software to track your spending.
 
 
-- Consider text ability to add expenses.
+Rails 4.0.0 / Ruby 2.0.0
+-------------------------
+
+
+Production:
+
+- Linux
+- Nginx
+- PostgreSQL
+- Unicorn
+
+
+Testing Suite:
+
+- Rspec
+- Capybara
+- Factory Girl
+- Selenium Webdriver
+
+
+Deployment is handled with Capistrano.

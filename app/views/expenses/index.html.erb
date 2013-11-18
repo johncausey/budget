@@ -39,12 +39,6 @@
       <div class="large-12 columns">
         <h4>Regular Spending Sheet &nbsp;<small>Purchases for <%= this_month %></small></h4>
         <table style="width: 100%">
-          <thead>
-            <tr>
-              <!-- <th class="fluid-font">Regular Spending Expenses for <%= this_month %></th> -->
-              <!-- <th class="fluid-font">Expense Information</th> -->
-            </tr>
-          </thead>
           <tbody>
             <%= form_for([@user, @user.expenses.build]) do |f| %>
               <tr class="new-expense">
@@ -119,5 +113,4 @@
       </div>
     </div>
   </div>
-
 </div>

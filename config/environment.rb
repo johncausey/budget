@@ -5,9 +5,9 @@ require File.expand_path('../application', __FILE__)
 Budget::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  :user_name => 'halimede',
-  :password => 'jenny8675309',
-  :domain => 'rainybudget.com',
+  :user_name => ENV['BUDGET_SENDGRID_USERNAME'],
+  :password => ENV['BUDGET_SENDGRID_PASSWORD'],
+  :domain => ENV['BUDGET_SENDGRID_DOMAIN'],
   :address => 'smtp.sendgrid.net',
   :port => 587,
   :authentication => :plain,

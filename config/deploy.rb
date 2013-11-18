@@ -1,13 +1,12 @@
 require "bundler/capistrano"
 
-server "192.241.226.152", :web, :app, :db, primary: true
+server ENV['BUDGET_IP_ADDRESS'], :web, :app, :db, primary: true
 
 set :application, "rainybudget"
-set :user, "deployer"
+set :user, ENV['BUDGET_PRODUCTION_USER']
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
-
 set :scm, "git"
 set :repository, "git@github.com:johncausey/budget.git"
 set :branch, "master"
@@ -15,7 +14,52 @@ set :branch, "master"
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-after "deploy", "deploy:cleanup" # keep only the last 5 releases
+after "deploy", "deploy:cleanup"
+
+# Return production logs in terminal through capistrano
+namespace :prolog do
+  desc "Return the production.log file; append '-s lines=value' for specific line count." 
+  task :shot, :roles => :app do
+    env = "production"
+    lines = variables[:lines] || 200
+    server = find_servers(:roles => [:app]).first
+    run_with_tty server, %W( tail -n#{lines} #{deploy_to}/#{shared_dir}/log/production.log )
+  end
+
+  desc "Return the production.log file in real time."
+  task :live, :roles => :app do
+    env = "production"
+    server = find_servers(:roles => [:app]).first
+    run_with_tty server, %W( tail -f #{deploy_to}/#{shared_dir}/log/production.log )
+  end
+end
+
+# Execute console environments for production
+desc "Remote console" 
+task :console, :roles => :app do
+  env = "production"
+  server = find_servers(:roles => [:app]).first
+  run_with_tty server, %W( ./script/rails console #{env} )
+end
+
+desc "Remote dbconsole" 
+task :dbconsole, :roles => :app do
+  env = "production"
+  server = find_servers(:roles => [:app]).first
+  run_with_tty server, %W( ./script/rails dbconsole #{env} )
+end
+
+def run_with_tty(server, cmd)
+  command = []
+  command += %W( ssh -t #{gateway} -l #{self[:gateway_user] || self[:user]} ) if     self[:gateway]
+  command += %W( ssh -t )
+  command += %W( -p #{server.port}) if server.port
+  command += %W( -l #{user} #{server.host} )
+  command += %W( cd #{current_path} )
+  command += [self[:gateway] ? '\&\&' : '&&']
+  command += Array(cmd)
+  system *command
+end
 
 namespace :deploy do
   %w[start stop restart].each do |command|

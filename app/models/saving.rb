@@ -2,8 +2,6 @@ class Saving < ActiveRecord::Base
 
   belongs_to :user
 
-  # validates_format_of :amount, :with => /\A[$]?[0-9]{0,3}[,]?[0-9]{0,3}[.]?[0-9]{0,2}\z/
-
   before_create :set_saving_month
   before_save :only_allow_one_per_month
 

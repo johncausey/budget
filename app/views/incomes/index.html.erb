@@ -41,12 +41,6 @@
       <div class="large-12 columns">
         <h4>Incoming Cash Sheet &nbsp;<small>Total Income for <%= this_month %></small></h4>
         <table style="width: 100%">
-          <thead>
-            <tr>
-              <!-- <th>Incoming Cash for <%= this_month %></th> -->
-              <!-- <th>Income Information</th> -->
-            </tr>
-          </thead>
           <tbody>
             <%= form_for([@user, @user.incomes.build]) do |f| %>
               <tr class="new-income">
@@ -117,5 +111,4 @@
       </div>
     </div>
   </div>
-
 </div>
