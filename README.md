@@ -13,17 +13,17 @@ Rails 4.0.0 / Ruby 2.0.0
 
 **Production:**
 
-Linux
-Nginx
-PostgreSQL
-Unicorn
-Capistrano
+* Linux
+* Nginx
+* PostgreSQL
+* Unicorn
+* Capistrano
 
 
 **Testing Suite:**
 
-Rspec
-Capybara
-Factory Girl
-Selenium Webdriver
+* Rspec
+* Capybara
+* Factory Girl
+* Selenium Webdriver
 
